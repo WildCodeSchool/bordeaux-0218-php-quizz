@@ -26,7 +26,6 @@ class UserController extends AbstractController
      */
     public function index()
     {
-        echo 'plop';
         $userManager = new UserManager();
         $users = $userManager->selectAll();
 
