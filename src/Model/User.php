@@ -10,7 +10,7 @@
 namespace Model;
 
 /**
- * Class Item
+ * Class User
  *
  */
 class Users
@@ -32,7 +32,7 @@ class Users
      *
      * @return Users
      */
-    public function setId($id): Item
+    public function setId($id): User
     {
         $this->id = $id;
 
@@ -50,9 +50,9 @@ class Users
     /**
      * @param mixed $title
      *
-     * @return Item
+     * @return User
      */
-    public function setFirstName($firstName):Item
+    public function setFirstName($firstName):User
     {
         $this->firstName = $firstName;
 
@@ -70,9 +70,9 @@ class Users
     /**
      * @param mixed $title
      *
-     * @return Item
+     * @return User
      */
-    public function setLastName($lastName):Item
+    public function setLastName($lastName):User
     {
         $this->lastName = $lastName;
 

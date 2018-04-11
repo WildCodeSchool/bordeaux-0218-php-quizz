@@ -12,7 +12,7 @@ namespace Model;
 /**
  *
  */
-class ItemManager extends AbstractManager
+class UserManager extends AbstractManager
 {
     const TABLE = 'users';
 

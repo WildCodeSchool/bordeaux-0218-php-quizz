@@ -24,6 +24,7 @@ abstract class AbstractController
      */
     public function __construct()
     {
+        echo 'plop';
         $loader = new Twig_Loader_Filesystem(APP_VIEW_PATH);
         $this->twig = new Twig_Environment(
             $loader,

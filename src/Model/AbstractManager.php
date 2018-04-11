@@ -32,7 +32,6 @@ abstract class AbstractManager
         $this->pdoConnection = $connexion->getPdoConnection();
         $this->table = $table;
         $this->className = __NAMESPACE__ . '\\' . ucfirst($table);
-        var_dump($this->className);
     }
 
     /**
@@ -42,20 +41,9 @@ abstract class AbstractManager
      */
     public function selectAll(): array
     {
-      $i = \PDO::FETCH_CLASS;
-      var_dump($i);
         $query = 'SELECT * FROM ' . $this->table;
-      $statement= $this->pdoConnection->query($query, \PDO::FETCH_CLASS, $this->className);
-      var_dump($this->className);
-        if (!$statement)
-        {
-          print_r($this->pdoConnection->errorInfo());
-          return [];
-        }
-        else
-        {
+        $statement= $this->pdoConnection->query($query, \PDO::FETCH_CLASS, $this->className);
           return $statement->fetchAll();
-        }
     }
 
     /**
