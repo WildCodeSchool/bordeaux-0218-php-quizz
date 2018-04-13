@@ -14,7 +14,7 @@ namespace Model;
  */
 class ItemManager extends AbstractManager
 {
-    const TABLE = 'item';
+    const TABLE = 'users';
 
     /**
      *  Initializes this class.
