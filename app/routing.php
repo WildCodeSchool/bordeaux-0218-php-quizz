@@ -17,8 +17,8 @@ $routes = [
         ['show', '/user/{id:\d+}', 'GET'], // action, url, method
     ], 
 
-    'User' => [
-    	['index', '/quizzs', 'GET'], // action, url, method
+    'Quizz' => [
+    	['index', '/quizz', 'GET'], // action, url, method
         ['add', '/quizz/add', 'GET'], // action, url, method
         ['edit', '/quizz/edit/{id:\d+}', 'GET'], // action, url, method
         ['show', '/quizz/{id:\d+}', 'GET'], // action, url, method

@@ -12,6 +12,8 @@ namespace Controller;
 use Model\Quizz;
 use Model\QuizzManager;
 use Model\UserManager;
+use Model\QuestionManager;
+use Model\AnswerManager;
 
 /**
  * Class QuizzController
@@ -29,6 +31,13 @@ class QuizzController extends AbstractController
     {
         $quizzManager = new QuizzManager();
         $quizzs = $quizzManager->selectAll();
+        $userManager = new UserManager();
+        $users = $userManager->selectAll();
+        $questionManager = new QuestionManager();
+        $questions = $questionManager->selectAll();
+        $answerManager = new AnswerManager();
+        $answers = $answerManager->selectAll();
+
 
         return $this->twig->render('User/index.html.twig', ['quizzs' => $quizzs]);
     }
@@ -42,10 +51,10 @@ class QuizzController extends AbstractController
      */
     public function show(int $id)
     {
-        $quizzManager = new QuizzManager();
-        $quizz = $quizzManager->selectOneById($id);
+        $questionManager = new QuestionManager();
+        $questions = $questionManager->selectQuizzQuestions($id);
 
-        return $this->twig->render('Quizz/show.html.twig', ['quizz' => $quizz]);
+        return $this->twig->render('User/show.html.twig', ['questions' => $questions]);
     }
 
     /**

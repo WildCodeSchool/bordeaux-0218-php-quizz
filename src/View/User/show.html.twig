@@ -1,8 +1,17 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1>Item {{ item.firstName }}</h1>
-    <p>{{ item.id }}. {{ item.firstName }}</p>
+    <h1>Item {{ questions.id }}</h1>
+    {% for question in questions %}
+            <li><a href="/user/{{ question.id }}">
+            {{ question.id }}. {{ question.question }} {{ question.id_quizz }}</a></li> 
+        {% else %}
+            <li>Nothing to display</li>
+        {% endfor %}
+    <p>{{ questions.id }}. {{ question.question }} {{ question.id_quizz }}</p>
     <a href="/item/edit/{{ item.id }}">Edit</a>
     <a href="/">Back</a>
+
+    
+
 {% endblock %}

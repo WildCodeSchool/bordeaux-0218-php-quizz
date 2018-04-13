@@ -4,7 +4,7 @@
     <h1>Users</h1>
     <ul>
         {% for user in users %}
-            <li><a href="/user/{{ users.id }}">{{ users.id }}. {{ users.theme }} {{ users.lastName }} {{ users.adress }}</a></li>
+            <li><a href="/user/{{ user.id }}">{{ user.id }}. {{ user.firstName }} {{ user.lastName }} {{ user.adress }}</a></li>
         {% else %}
             <li>Nothing to display</li>
         {% endfor %}
@@ -13,10 +13,32 @@
     <h1>Quizz</h1>
     <ul>
         {% for quizz in quizzs %}
-            <li><a href="/user/{{ quizz.id }}">
+            <li><a href="/quizz/{{ quizz.id }}">
             {{ quizz.id }}. {{ quizz.theme }} {{ quizz.id_users }}</a></li> 
         {% else %}
             <li>Nothing to display</li>
         {% endfor %}
     </ul>
+
+    <h1>Questions</h1>
+    <ul>
+        {% for question in questions %}
+            <li><a href="/user/{{ question.id }}">
+            {{ question.id }}. {{ question.question }} {{ question.id_quizz }}</a></li> 
+        {% else %}
+            <li>Nothing to display</li>
+        {% endfor %}
+    </ul>
+
+    <h1>Answers</h1>
+    <ul>
+        {% for answer in answers %}
+            <li><a href="/user/{{ answer.id }}">
+            {{ answer.id }}. {{ answer.name }} {{ answer.istrue }}  {{ answer.id_questions }}</a></li> 
+        {% else %}
+            <li>Nothing to display</li>
+        {% endfor %}
+    </ul>
+
+
 {% endblock %}

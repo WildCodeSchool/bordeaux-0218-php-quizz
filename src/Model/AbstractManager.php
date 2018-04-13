@@ -42,9 +42,6 @@ abstract class AbstractManager
      */
     public function selectAll(): array
     {
-        var_dump($this->table);
-        var_dump($this->pdoConnection);
-
         return $this->pdoConnection->query('SELECT * FROM ' . $this->table, \PDO::FETCH_CLASS, $this->className)->fetchAll();
     }
 
@@ -67,7 +64,7 @@ abstract class AbstractManager
     }
 
     /**
-     * DELETE on row in dataase by ID
+     * DELETE on row in database by ID
      *
      * @param int $id
      */
