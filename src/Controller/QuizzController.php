@@ -39,7 +39,7 @@ class QuizzController extends AbstractController
         $answers = $answerManager->selectAll();
 
 
-        return $this->twig->render('User/index.html.twig', ['quizzs' => $quizzs]);
+        return $this->twig->render('User/index.html.twig', ['quizzs' => $quizzs, 'users' => $users, 'answers' => $answers, 'questions' => $questions]);
     }
 
     /**

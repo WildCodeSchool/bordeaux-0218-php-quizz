@@ -46,6 +46,8 @@ switch ($routeInfo[0]) {
         $vars = $routeInfo[2];
         list($class, $method) = explode("/", $handler, 2);
         $class = APP_CONTROLLER_NAMESPACE . $class . APP_CONTROLLER_SUFFIX;
+        var_dump($uri);
+        var_dump($routeInfo);
         echo call_user_func_array([new $class(), $method], $vars);
 
         break;
