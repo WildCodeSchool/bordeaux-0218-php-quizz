@@ -10,10 +10,30 @@
  */
 
 $routes = [
-    'Item' => [ // Controller
-        ['index', '/', 'GET'], // action, url, method
-        ['add', '/item/add', 'GET'], // action, url, method
-        ['edit', '/item/edit/{id:\d+}', 'GET'], // action, url, method
-        ['show', '/item/{id:\d+}', 'GET'], // action, url, method
+    'user' => [ // Controller
+        ['index', 'users/', 'GET'], // action, url, method
+        ['add', '/user/add', 'GET'], // action, url, method
+        ['edit', '/user/edit/{id:\d+}', 'GET'], // action, url, method
+        ['show', '/user/{id:\d+}', 'GET'], // action, url, method
+
+        /*['index', '/quizzs', 'GET'], // action, url, method
+        ['add', '/quizz/add', 'GET'], // action, url, method
+        ['edit', '/quizz/edit/{id:\d+}', 'GET'], // action, url, method
+        ['show', '/quizz/{id:\d+}', 'GET'], // action, url, method
+
+        ['index', '/quiestions', 'GET'], // action, url, method
+        ['add', '/quiestion/add', 'GET'], // action, url, method
+        ['edit', '/quiestion/edit/{id:\d+}', 'GET'], // action, url, method
+        ['show', '/quiestion/{id:\d+}', 'GET'], // action, url, method
+
+        ['index', '/answers', 'GET'], // action, url, method
+        ['add', '/answer/add', 'GET'], // action, url, method
+        ['edit', '/answer/edit/{id:\d+}', 'GET'], // action, url, method
+        ['show', '/answer/{id:\d+}', 'GET'], // action, url, method
+
+        ['index', '/scores', 'GET'], // action, url, method
+        ['add', '/score/add', 'GET'], // action, url, method
+        ['edit', '/score/edit/{id:\d+}', 'GET'], // action, url, method
+        ['show', '/score/{id:\d+}', 'GET'], // action, url, method*/
     ],
 ];
