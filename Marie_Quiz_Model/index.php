@@ -1,12 +1,10 @@
 <?php include 'database.php'; ?>
 <?php
-/*
-*	Get total Question
-*/
+{# Get total Question #}
 
 $query = "SELECT * FROM questions";
 
-//Get results
+{#  Get results #}
 $results = $mysqli->query($query) or die($mysqli->error.__LINE__);
 $total = $results->num_rows;
 
