@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Apr 12, 2018 at 01:36 PM
+-- Generation Time: Apr 18, 2018 at 07:52 AM
 -- Server version: 5.6.38
 -- PHP Version: 7.2.1
 
@@ -41,7 +41,7 @@ CREATE TABLE `answers` (
 
 CREATE TABLE `questions` (
   `id` int(11) NOT NULL,
-  `question` varchar(255) NOT NULL,
+  `questionName` varchar(255) NOT NULL,
   `id_quizz` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -53,6 +53,7 @@ CREATE TABLE `questions` (
 
 CREATE TABLE `quizz` (
   `id` int(11) NOT NULL,
+  `quizzName` varchar(55) NOT NULL,
   `theme` varchar(25) DEFAULT NULL,
   `id_users` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -60,10 +61,10 @@ CREATE TABLE `quizz` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `score`
+-- Table structure for table `scores`
 --
 
-CREATE TABLE `score` (
+CREATE TABLE `scores` (
   `id` int(11) NOT NULL,
   `id_users` int(11) NOT NULL,
   `id_quizz` int(11) NOT NULL,
@@ -113,9 +114,9 @@ ALTER TABLE `quizz`
   ADD KEY `id_users` (`id_users`);
 
 --
--- Indexes for table `score`
+-- Indexes for table `scores`
 --
-ALTER TABLE `score`
+ALTER TABLE `scores`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_users` (`id_users`),
   ADD KEY `id_quizz` (`id_quizz`);
@@ -149,9 +150,9 @@ ALTER TABLE `quizz`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `score`
+-- AUTO_INCREMENT for table `scores`
 --
-ALTER TABLE `score`
+ALTER TABLE `scores`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -183,11 +184,11 @@ ALTER TABLE `quizz`
   ADD CONSTRAINT `quizz_ibfk_1` FOREIGN KEY (`id_users`) REFERENCES `users` (`id`);
 
 --
--- Constraints for table `score`
+-- Constraints for table `scores`
 --
-ALTER TABLE `score`
-  ADD CONSTRAINT `score_ibfk_1` FOREIGN KEY (`id_users`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `score_ibfk_2` FOREIGN KEY (`id_quizz`) REFERENCES `quizz` (`id`);
+ALTER TABLE `scores`
+  ADD CONSTRAINT `scores_ibfk_1` FOREIGN KEY (`id_users`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `scores_ibfk_2` FOREIGN KEY (`id_quizz`) REFERENCES `quizz` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
