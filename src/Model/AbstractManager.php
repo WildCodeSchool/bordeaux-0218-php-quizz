@@ -34,6 +34,7 @@ abstract class AbstractManager
         $this->className = __NAMESPACE__ . '\\' . ucfirst($table);
     }
 
+
     /**
      * Get all row from database.
      *
@@ -41,6 +42,7 @@ abstract class AbstractManager
      */
     public function selectAll(): array
     {
+        
         return $this->pdoConnection->query('SELECT * FROM ' . $this->table, \PDO::FETCH_CLASS, $this->className)->fetchAll();
     }
 
