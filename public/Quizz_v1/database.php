@@ -1,6 +1,6 @@
 <?php
 $db_host = 'localhost';
-$db_name = 'quizz_projet2';
+$db_name = 'quizz_demo';
 $db_user = 'root';
 $db_password = 'root';
 //Create mysqli object
