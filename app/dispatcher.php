@@ -13,8 +13,24 @@
 require_once __DIR__ . '/routing.php';
 $routesCollection = function (FastRoute\RouteCollector $r) use ($routes) {
     foreach ($routes as $controller => $actions) {
+        echo '<pre> ****routes*****';
+        var_dump($routes);
+        echo '</pre>';
+        echo "<br>";
+        echo '<pre>****controller*****';
+        var_dump($controller);
+        echo '</pre>';
+        echo "<br>";
+        echo '<pre>****actions*****';
+        var_dump($actions);
+        echo '</pre>';
+        echo "<br>";
         foreach ($actions as $action) {
             $r->addRoute($action[2], $action[1], $controller . '/' . $action[0]);
+            echo '<pre>****  r  *****';
+        var_dump($r);
+        echo '</pre>';
+        echo "<br>";
         }
     }
 };
@@ -46,8 +62,6 @@ switch ($routeInfo[0]) {
         $vars = $routeInfo[2];
         list($class, $method) = explode("/", $handler, 2);
         $class = APP_CONTROLLER_NAMESPACE . $class . APP_CONTROLLER_SUFFIX;
-        var_dump($uri);
-        var_dump($routeInfo);
         echo call_user_func_array([new $class(), $method], $vars);
 
         break;
