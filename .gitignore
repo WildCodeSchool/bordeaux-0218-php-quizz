@@ -4,3 +4,5 @@
 app/db.php
 .idea
 .DS_Store
+twig_template.html.twig
+child_template.html.twig
