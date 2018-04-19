@@ -10,10 +10,11 @@
  */
 
 $routes = [
-    'Item' => [ // Controller
-        ['index', '/', 'GET'], // action, url, method
-        ['add', '/add', 'GET'], // action, url, method
-        ['edit', '/edit/{id:\d+}', 'GET'], // action, url, method
-        ['show', '/{id:\d+}', 'GET'], // action, url, method
+    'Inscription' => [ // Controller
+
+        ['formulaire', '/', ['GET', 'POST']], // action, url, method
+    ],
+    'Profil' => [ // Controller
+        ['profil', '/profil', 'GET'], // action, url, method
     ],
 ];

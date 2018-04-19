@@ -2,6 +2,7 @@
 /vendor/
 /temp/*
 *.cache
+<<<<<<< HEAD
 /app/
 composer.json
 README.md
@@ -17,3 +18,6 @@ src/.DS_Store
 src/Model/.DS_Store
 .gitignore.swp
 .DS_Store
+app/db.php
+composer.json
+composer.lock
