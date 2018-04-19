@@ -2,22 +2,11 @@
 /vendor/
 /temp/*
 *.cache
-<<<<<<< HEAD
-/app/
 composer.json
 README.md
-simple-mvc.sql
-public/
 composer.lock
-src/View
-src/Model/ItemManager.php
-src/Model/Users.php
-src/Model/AbstractManager.php
-src/Controller
 src/.DS_Store
 src/Model/.DS_Store
 .gitignore.swp
 .DS_Store
 app/db.php
-twig_template.html.twig
-child_template.html.twig
