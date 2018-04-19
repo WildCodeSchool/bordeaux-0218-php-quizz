@@ -12,9 +12,14 @@
 $routes = [
     'Inscription' => [ // Controller
 
-        ['formulaire', '/', ['GET', 'POST']], // action, url, method
+        ['formulaire', '/formulaire', ['GET', 'POST']], // action, url, method
     ],
     'Profil' => [ // Controller
         ['profil', '/profil', 'GET'], // action, url, method
+    ],
+
+    'Home' => [ // Controller
+
+        ['home', '/choucroute', ['GET', 'POST']], // action, url, method
     ],
 ];
