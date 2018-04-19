@@ -36,4 +36,10 @@ $routes = [
         ['edit', '/score/edit/{id:\d+}', 'GET'], // action, url, method
         ['show', '/score/{id:\d+}', 'GET'], // action, url, method*/
     ],
+    'quizz' => [ // Controller
+        ['index', '/', 'GET'], // action, url, method
+        ['add', '/quizz/add', 'GET'], // action, url, method
+        ['edit', '/quizz/edit/{id:\d+}', 'GET'], // action, url, method
+        ['show', '/quizz/{id:\d+}', 'GET'], // action, url, method
+    ],
 ];

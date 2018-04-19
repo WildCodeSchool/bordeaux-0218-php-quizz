@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
+<<<<<<< HEAD
 -- Generation Time: Apr 12, 2018 at 01:36 PM
+=======
+-- Generation Time: Apr 18, 2018 at 07:52 AM
+>>>>>>> origin/david_dev_bdd
 -- Server version: 5.6.38
 -- PHP Version: 7.2.1
 
@@ -41,7 +45,11 @@ CREATE TABLE `answers` (
 
 CREATE TABLE `questions` (
   `id` int(11) NOT NULL,
+<<<<<<< HEAD
   `question` varchar(255) NOT NULL,
+=======
+  `questionName` varchar(255) NOT NULL,
+>>>>>>> origin/david_dev_bdd
   `id_quizz` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -53,6 +61,10 @@ CREATE TABLE `questions` (
 
 CREATE TABLE `quizz` (
   `id` int(11) NOT NULL,
+<<<<<<< HEAD
+=======
+  `quizzName` varchar(55) NOT NULL,
+>>>>>>> origin/david_dev_bdd
   `theme` varchar(25) DEFAULT NULL,
   `id_users` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -60,10 +72,17 @@ CREATE TABLE `quizz` (
 -- --------------------------------------------------------
 
 --
+<<<<<<< HEAD
 -- Table structure for table `score`
 --
 
 CREATE TABLE `score` (
+=======
+-- Table structure for table `scores`
+--
+
+CREATE TABLE `scores` (
+>>>>>>> origin/david_dev_bdd
   `id` int(11) NOT NULL,
   `id_users` int(11) NOT NULL,
   `id_quizz` int(11) NOT NULL,
@@ -113,9 +132,15 @@ ALTER TABLE `quizz`
   ADD KEY `id_users` (`id_users`);
 
 --
+<<<<<<< HEAD
 -- Indexes for table `score`
 --
 ALTER TABLE `score`
+=======
+-- Indexes for table `scores`
+--
+ALTER TABLE `scores`
+>>>>>>> origin/david_dev_bdd
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_users` (`id_users`),
   ADD KEY `id_quizz` (`id_quizz`);
@@ -149,9 +174,15 @@ ALTER TABLE `quizz`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+<<<<<<< HEAD
 -- AUTO_INCREMENT for table `score`
 --
 ALTER TABLE `score`
+=======
+-- AUTO_INCREMENT for table `scores`
+--
+ALTER TABLE `scores`
+>>>>>>> origin/david_dev_bdd
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -183,11 +214,19 @@ ALTER TABLE `quizz`
   ADD CONSTRAINT `quizz_ibfk_1` FOREIGN KEY (`id_users`) REFERENCES `users` (`id`);
 
 --
+<<<<<<< HEAD
 -- Constraints for table `score`
 --
 ALTER TABLE `score`
   ADD CONSTRAINT `score_ibfk_1` FOREIGN KEY (`id_users`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `score_ibfk_2` FOREIGN KEY (`id_quizz`) REFERENCES `quizz` (`id`);
+=======
+-- Constraints for table `scores`
+--
+ALTER TABLE `scores`
+  ADD CONSTRAINT `scores_ibfk_1` FOREIGN KEY (`id_users`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `scores_ibfk_2` FOREIGN KEY (`id_quizz`) REFERENCES `quizz` (`id`);
+>>>>>>> origin/david_dev_bdd
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
