@@ -10,6 +10,7 @@
  */
 
 $routes = [
+<<<<<<< HEAD
     'user' => [ // Controller
         ['index', 'users/', 'GET'], // action, url, method
         ['add', '/user/add', 'GET'], // action, url, method
@@ -35,11 +36,18 @@ $routes = [
         ['add', '/score/add', 'GET'], // action, url, method
         ['edit', '/score/edit/{id:\d+}', 'GET'], // action, url, method
         ['show', '/score/{id:\d+}', 'GET'], // action, url, method*/
+=======
+    'Inscription' => [ // Controller
+
+        ['formulaire', '/formulaire', ['GET', 'POST']], // action, url, method
     ],
-    'quizz' => [ // Controller
-        ['index', '/', 'GET'], // action, url, method
-        ['add', '/quizz/add', 'GET'], // action, url, method
-        ['edit', '/quizz/edit/{id:\d+}', 'GET'], // action, url, method
-        ['show', '/quizz/{id:\d+}', 'GET'], // action, url, method
+    'Profil' => [ // Controller
+        ['profil', '/profil', 'GET'], // action, url, method
+>>>>>>> origin/first_merge_inscription_manager
+    ],
+
+    'Home' => [ // Controller
+
+        ['home', '/choucroute', ['GET', 'POST']], // action, url, method
     ],
 ];
