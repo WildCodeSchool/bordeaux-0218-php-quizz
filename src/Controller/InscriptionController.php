@@ -12,6 +12,7 @@ namespace Controller;
 use Model\Users;
 use Model\InscriptionManager;
 use Model\ProfilManager;
+use Model\VerificationManager;
 
 /**
  * Class InscriptionController
@@ -27,14 +28,24 @@ class InscriptionController extends AbstractController
      */
     public function formulaire()
     {
-
-        $inscription = new InscriptionManager();
-        $inscription->newUser($_POST);
-        if (isset($_POST) && count($_POST)>0)
+        
+        if (isset($_POST) && count($_POST) === 5)
         {
-            $_SESSION['mail']=$_POST['mail'];
-            header('Location: /profil');
-            var_dump($_SESSION);
+            $setMail = new VerificationManager();
+        $mail = $setMail->verificationMail($_POST['mail']);
+
+            if ($mail != TRUE)
+            {
+
+            $inscription = new InscriptionManager();
+            $inscription->newUser($_POST, $mail);
+                $_SESSION['mail']=$mail;
+                header('Location: /profil');
+            }
+            else
+            {
+                header('Location: /formulaire');
+            }
         }
 
         return $this->twig->render('Inscription/_form.html.twig');

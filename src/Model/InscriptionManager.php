@@ -27,12 +27,13 @@ class InscriptionManager extends AbstractManager
         $this->className = __NAMESPACE__ . '\\' . 'Inscription';
     }
 
-    public function newUser($newProfil)
+    public function newUser($newProfil, $mail)
     {
         if (isset($_POST))
         {
             if (count($_POST)>0)
             {
+
         $query = "INSERT INTO $this->table (firstName, lastName, adress, mail, password, status) VALUES (:firstName, :lastName, :adress, :mail, :password, 'user')";
 
         $statement = $this->pdoConnection->prepare($query);
@@ -40,20 +41,15 @@ class InscriptionManager extends AbstractManager
         $statement->bindParam(':firstName', $newProfil['firstName'], \PDO::PARAM_STR);
 		$statement->bindParam(':lastName', $newProfil['lastName'], \PDO::PARAM_STR);
 		$statement->bindParam(':adress', $newProfil['adress'], \PDO::PARAM_STR);
-		$statement->bindParam(':mail', $newProfil['mail'], \PDO::PARAM_STR);
+		$statement->bindParam(':mail', $mail, \PDO::PARAM_STR);
 		$statement->bindParam(':password', $newProfil['password'], \PDO::PARAM_STR);
 
 		$statement->execute();
-    }
-    }
+            }
+        }
 
 
     }
-
-    //public function newUser()
-    //{
-     //   $query = ""
-    //}
 }
 
 
