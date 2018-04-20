@@ -2,7 +2,9 @@
 
 
 {% block content %}
+
 <div class="container">
+	<h3> Fiche d'inscription </h3>
 <form method="post">
 		<div class="form-group">
 		    <label for="lastName"> Nom </label>
@@ -18,8 +20,8 @@
 		    <label for="firstName"> Prénom </label>
 		    <input type="text"
 		           class="form-control"
-		           id="firstName" 
-		           name="lastName" 
+		           id="firstName"
+		           name="lastName"
 		           aria-describedby="firstNameHelp"
 		           placeholder=""
 		           required="required">
@@ -55,9 +57,9 @@
 	           placeholder=""
 	           required="required">
 	    </div>
-	
-		<button type="submit" class="btn btn-primary"> Valider </button>
-	
+
+		<button type="submit" class="myButton"> Valider </button>
+
 	</form>
 	</div>
 	{% endblock %}
