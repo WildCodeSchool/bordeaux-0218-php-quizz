@@ -36,7 +36,7 @@ class ProfilController extends AbstractController
             $profilId = $profil->profilId($_SESSION['mail']);
             $userProfil = $profil->profil($profilId['id']);
 
-        return $this->twig->render('Profil/profil.html.twig', ['profil' => $userProfil]);
+        return $this->twig->render('Profil/profilUser.html.twig', ['profil' => $userProfil]);
         }
     }
 

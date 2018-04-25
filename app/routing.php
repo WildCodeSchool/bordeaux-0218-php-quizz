@@ -24,6 +24,6 @@ $routes = [
     ],
 
     'Home' => [ // Controller
-        ['home', '/', ['GET', 'POST']], // action, url, method
+    ['home', '/', ['GET', 'POST']], // action, url, method
     ],
 ];
