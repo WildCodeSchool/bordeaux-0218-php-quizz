@@ -31,16 +31,24 @@ class InscriptionController extends AbstractController
         
         if (isset($_POST) && count($_POST) === 5)
         {
-            $setMail = new VerificationManager();
-        $mail = $setMail->verificationMail($_POST['mail']);
+            $userEntriesVerification = new VerificationManager();
+            $mail = $userEntriesVerification->verificationMail($_POST['mail']);
 
-            if ($mail != TRUE)
+            if ($mail != FALSE)
             {
 
             $inscription = new InscriptionManager();
-            $inscription->newUser($_POST, $mail);
-                $_SESSION['mail']=$mail;
-                header('Location: /profil');
+
+            $firstName = $userEntriesVerification->verificationFirstName($_POST['firstName']);
+            $lastName = $userEntriesVerification->verificationLastName($_POST['lastName']);
+            $adress = $userEntriesVerification->verificationAdress($_POST['adress']);
+            $password = $userEntriesVerification->verificationPassword($_POST['password']);
+
+
+            $inscription->newUser($firstName, $lastName, $adress, $password, $mail);
+            $_SESSION['mail']=$mail;
+            header('Location: /profil');
+
             }
             else
             {

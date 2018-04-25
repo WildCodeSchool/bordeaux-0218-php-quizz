@@ -29,31 +29,31 @@ class VerificationManager extends AbstractManager
 
     public function verificationFirstName ($firstName)
     {
-        if (trim($firstName) != '')
+        if (trim($firstName) != '' && strlen(trim($firstName)) > 3)
         {
-            return $firstName;
+            return trim($firstName);
         }
     }
 
     public function verificationLastName ($lastName)
     {
-        if (trim($lastName) != '')
+        if (trim($lastName) != '' && strlen(trim($lastName)) > 3)
         {
-            return $lastName;
+            return trim($lastName);
         }
     }
 
     public function verificationAdress ($adress)
     {
-        if (trim($adress) != '')
+        if (trim($adress) != '' && strlen(trim($adress)) > 1)
         {
-            return $adress;
+            return trim($adress);
         }
     }
 
     public function verificationMail ($mail)
     {
-        $query = "SELECT * FROM $this->table WHERE mail = ':mail'";
+        $query = "SELECT COUNT(*) FROM $this->table WHERE mail = ':mail'";
 
         $statement = $this->pdoConnection->prepare($query);
 
@@ -62,26 +62,23 @@ class VerificationManager extends AbstractManager
         $statement->setFetchMode(\PDO::FETCH_CLASS, $this->className);
         $statement->bindParam(':mail', $mail, \PDO::PARAM_STR);
         $statement->execute();
-        $alreadyInTable = $statement->fetchAll();
+        $alreadyInTable = $statement->fetch();
 
-        $_SESSION['inTable']=$alreadyInTable;
-
-        if (trim($mail) != '' && $alreadyInTable === FALSE)
+        if (trim($mail) != '' && $alreadyInTable === 0)
         {
-
-            return $mail;
+            return trim($mail);
         }
         else
         {
-            return TRUE;
+            return FALSE;
         }
     }
 
     public function verificationPassword ($password)
     {
-        if (trim($password) != '')
+        if (trim($password) != '' && strlen(trim($password)) > 5)
         {
-            return $password;
+            return trim($password);
         }
     }
 
