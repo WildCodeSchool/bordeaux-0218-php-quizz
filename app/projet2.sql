@@ -3,7 +3,10 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
+<<<<<<< HEAD
 
+=======
+>>>>>>> 24523f489e960f4df5837cfadb665f046444d4ae
 -- Generation Time: Apr 18, 2018 at 07:52 AM
 -- Server version: 5.6.38
 -- PHP Version: 7.2.1
@@ -61,7 +64,11 @@ CREATE TABLE `quizz` (
 
 -- --------------------------------------------------------
 
+<<<<<<< HEAD
 
+=======
+--
+>>>>>>> 24523f489e960f4df5837cfadb665f046444d4ae
 -- Table structure for table `scores`
 --
 
@@ -151,7 +158,10 @@ ALTER TABLE `quizz`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+<<<<<<< HEAD
 
+=======
+>>>>>>> 24523f489e960f4df5837cfadb665f046444d4ae
 -- AUTO_INCREMENT for table `scores`
 --
 ALTER TABLE `scores`
@@ -194,4 +204,8 @@ ALTER TABLE `scores`
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+<<<<<<< HEAD
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+=======
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+>>>>>>> 24523f489e960f4df5837cfadb665f046444d4ae
