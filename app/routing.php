@@ -20,6 +20,10 @@ $routes = [
     ],
 
     'EditProfil' => [ // Controller
-    ['EditProfil', '/EditProfil', ['GET', 'POST']], // action, url, method
+    ['editProfil', '/editProfil', ['GET', 'POST']], // action, url, method
+    ],
+
+    'Home' => [ // Controller
+        ['home', '/', ['GET', 'POST']], // action, url, method
     ],
 ];

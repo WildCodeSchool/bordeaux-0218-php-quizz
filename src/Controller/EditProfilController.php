@@ -12,6 +12,7 @@ namespace Controller;
 use Model\Users;
 use Model\ProfilManager;
 use Model\InscriptionManager;
+use Model\VerificationManager;
 
 /**
  * Class ProfilController
@@ -27,23 +28,16 @@ class EditProfilController extends AbstractController
      *
      * @return string
      */
-    public function EditProfil()
+    public function editProfil()
     {
-      if (isset($_SESSION['mail']))
-      {
+      //if (isset($_SESSION['mail']))
+      //{
+          var_dump($_SESSION);
           $profil = new ProfilManager();
           $profilId = $profil->profilId($_SESSION['mail']);
           $userProfil = $profil->profil($profilId['id']);
-          $inscription = new InscriptionManager();
-          $inscription->newUser($_POST);
-          if (isset($_POST) && count($_POST)>0)
-          {
-              $_SESSION['mail']=$_POST['mail'];
-              header('Location: /profil');
-              var_dump($_POST);
-          }
 
-        return $this->twig->render('Profil/editProfilUser.html.twig', ['profil' => $userProfil]);
-        }
+          return $this->twig->render('Profil/editProfilUser.html.twig', ['profil' => $userProfil]);
+      //}
     }
 }
