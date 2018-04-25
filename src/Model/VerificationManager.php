@@ -64,7 +64,7 @@ class VerificationManager extends AbstractManager
         $statement->execute();
         $alreadyInTable = $statement->fetch();
 
-        if (trim($mail) != '' && $alreadyInTable === 0)
+        if (trim($mail) != '' && $alreadyInTable[0] === "0")
         {
             return trim($mail);
         }

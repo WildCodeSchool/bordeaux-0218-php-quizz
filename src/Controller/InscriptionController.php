@@ -28,15 +28,12 @@ class InscriptionController extends AbstractController
      */
     public function formulaire()
     {
-        
         if (isset($_POST) && count($_POST) === 5)
         {
             $userEntriesVerification = new VerificationManager();
             $mail = $userEntriesVerification->verificationMail($_POST['mail']);
-
             if ($mail != FALSE)
             {
-
             $inscription = new InscriptionManager();
 
             $firstName = $userEntriesVerification->verificationFirstName($_POST['firstName']);
@@ -46,7 +43,7 @@ class InscriptionController extends AbstractController
 
 
             $inscription->newUser($firstName, $lastName, $adress, $password, $mail);
-            $_SESSION['mail']=$mail;
+            $_SESSION['mail1']=$mail;
             header('Location: /profil');
 
             }
