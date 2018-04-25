@@ -16,7 +16,7 @@ class ProfilManager extends AbstractManager
 {
     const TABLE = 'users';
 
-    
+
 
     /**
      *  Initializes this class.

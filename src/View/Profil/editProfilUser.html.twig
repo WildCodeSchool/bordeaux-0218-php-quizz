@@ -8,11 +8,9 @@
 			<div class="col-xs-3 col-md-3">
 				<b>Nom</b>
 			</div>
-			<div class="col-xs-6 col-md-6"><!-- colonne ou sera récupéré le nom de l'utilisateur -->
-        <input type="text" value = "{{ info.firstName }}" />
-			</div>
-			<div class="col-xs-3 col-md-3">
-
+			<div class="col-xs-6 col-md-6">
+				<form role="form" action="EditProfil" method="POST">
+					<input class="form-control" placeholder="{{ info.firstName }}" name="firstName" type="text">
 			</div>
 		</div>
 </br>
@@ -20,23 +18,18 @@
 			<div class="col-xs-3 col-md-3">
 				<b>Prénom</b>
 			</div>
-			<div class="col-xs-6 col-md-6"><!-- colonne ou sera récupéré le prénom de l'utilisateur -->
-        <input type="text" value = "{{ info.lastName }}" />
+			<div class="col-xs-6 col-md-6">
+					<input class="form-control" placeholder="{{ info.lastName }}" name="lastName" type="text">
 			</div>
-			<div class="col-xs-3 col-md-3">
 
-			</div>
 		</div>
 </br>
 		<div class="row">
 			<div class="col-xs-3 col-md-3">
 				<b>Adresse</b>
 			</div>
-			<div class="col-xs-6 col-md-6"><!-- colonne ou sera récupéré l'adresse postale de l'utilisateur -->
-        <input type="text" value = "{{ info.adress }}" />
-			</div>
-			<div class="col-xs-3 col-md-3">
-
+			<div class="col-xs-6 col-md-6">
+					<input class="form-control" placeholder="{{ info.adress }}" name="adress" type="text">
 			</div>
 		</div>
 </br>
@@ -44,11 +37,8 @@
 			<div class="col-xs-3 col-md-3">
 				<b>E-mail</b>
 			</div>
-			<div class="col-xs-6 col-md-6"><!-- colonne ou sera récupéré l'adresse mail de l'utilisateur -->
-				<input type="text" value = "{{ info.mail }}" />
-			</div>
-			<div class="col-xs-3 col-md-3">
-
+			<div class="col-xs-6 col-md-6">
+					<input class="form-control" placeholder="{{ info.mail }}" name="mail" type="text">
 			</div>
 		</div>
 </br>
@@ -56,13 +46,13 @@
 			<div class="col-xs-3 col-md-3">
 				<b>Password</b>
 			</div>
-			<div class="col-xs-6 col-md-6"><!-- colonne ou sera récupéré le password de l'utilisateur -->
-        <input type="text" value = "{{ info.password }}" />
-			</div>
-			<div class="col-xs-3 col-md-3">
-
+			<div class="col-xs-6 col-md-6">
+					<input class="form-control" placeholder="{{ info.password }}" name="password" type="text">
 			</div>
 		</div>
+	</div>
+			<input type="submit" name="UpdateEdit" value="Valider Modifications">
+	</form>
 	</div>
 {% endfor %}
 {% endblock %}

@@ -38,10 +38,10 @@ class InscriptionManager extends AbstractManager
         $statement = $this->pdoConnection->prepare($query);
 
         $statement->bindParam(':firstName', $newProfil['firstName'], \PDO::PARAM_STR);
-		$statement->bindParam(':lastName', $newProfil['lastName'], \PDO::PARAM_STR);
-		$statement->bindParam(':adress', $newProfil['adress'], \PDO::PARAM_STR);
-		$statement->bindParam(':mail', $newProfil['mail'], \PDO::PARAM_STR);
-		$statement->bindParam(':password', $newProfil['password'], \PDO::PARAM_STR);
+      	$statement->bindParam(':lastName', $newProfil['lastName'], \PDO::PARAM_STR);
+      	$statement->bindParam(':adress', $newProfil['adress'], \PDO::PARAM_STR);
+      	$statement->bindParam(':mail', $newProfil['mail'], \PDO::PARAM_STR);
+      	$statement->bindParam(':password', $newProfil['password'], \PDO::PARAM_STR);
 
 		$statement->execute();
     }
@@ -55,10 +55,3 @@ class InscriptionManager extends AbstractManager
      //   $query = ""
     //}
 }
-
-
-
-
-
-
-
