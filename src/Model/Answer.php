@@ -19,7 +19,7 @@ class Answer
 
     private $name;
 
-    private $istrue;
+    private $isTrue;
 
     private $idQuestions;
 
@@ -68,7 +68,7 @@ class Answer
      */
     public function getIsTrue(): string
     {
-        return $this->istrue;
+        return $this->isTrue;
     }
 
     /**
@@ -76,9 +76,9 @@ class Answer
      *
      * @return Answer
      */
-    public function setIsTrue($istrue):Answer
+    public function setIsTrue($isTrue):Answer
     {
-        $this->istrue = $istrue;
+        $this->isTrue = $isTrue;
 
         return $this;
     }
