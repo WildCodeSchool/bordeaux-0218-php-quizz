@@ -36,3 +36,6 @@ abstract class AbstractController
         $this->twig->addExtension(new \Twig_Extension_Debug());
     }
 }
+
+
+// Créer une méthode conection, peut-être la mettre dans chaque controller, ou une class connectionManager instancier dans chaque méthode de controller, conditionnner isset($_POST['email']) && isset($_POST['password']) ou la meme avec des session. cas 1 première fois que tu te connecte, cas 2 t'es déjà connecté. Du coup dans le layout, le contenu de la navbar change si connecté ou non. Du coup, on pourrait avoir n'importe quelle méthode d'un controller qui commence par $_POST? $_SESSION? else la méthode en question.
