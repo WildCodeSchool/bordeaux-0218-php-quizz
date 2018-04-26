@@ -34,7 +34,10 @@ class QuizzController extends AbstractController
         $answerManager = new AnswerManager();
         $questions = $questionManager->selectQuestions(1);
 // TODO ATTENTION BOUCLER
-        $answers = $answerManager->selectAnswers($questions[0]->getId());
+        for ($i=0; $i<10; $i++)
+        {
+        $answers [] = $answerManager->selectAnswers($questions[$i]->getId());
+        }
 
         return $this->twig->render('Quizz/quizz.html.twig', ['questions' => $questions, 'answers' => $answers]);
     }

@@ -8,7 +8,12 @@
     	<li>{{ question.questionName }}
     	<ul> 
 	    	{% for answer in answers %}
-	    			<li>{{ answer.name }}</li>
+                {% for answer1 in answer %}
+                    {% if answer1.idQuestions == question.id %}
+	    			<li>{{ answer1.name }}       {{ answer1.istrue }}</li>
+                    {% endif %}
+                    
+                {% endfor %}
 	    	{% else %}
 	        <li>Nothing to display</li>
     		{% endfor %}

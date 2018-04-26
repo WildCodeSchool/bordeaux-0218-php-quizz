@@ -28,7 +28,7 @@ class AnswerManager extends AbstractManager
 
     public function selectAnswers ($id)
     {
-        $query = "SELECT * FROM $this->table WHERE id_questions = :id ";
+        $query = "SELECT * FROM $this->table WHERE idQuestions = :id ";
 
         $statement = $this->pdoConnection->prepare($query);
         $statement->setFetchMode(\PDO::FETCH_CLASS, $this->className);

@@ -21,7 +21,7 @@ class Answer
 
     private $istrue;
 
-    private $id_questions;
+    private $idQuestions;
 
     /**
      * @return int
@@ -88,7 +88,7 @@ class Answer
      */
     public function getIdQuestions(): string
     {
-        return $this->id_questions;
+        return $this->idQuestions;
     }
 
     /**
@@ -96,9 +96,9 @@ class Answer
      *
      * @return Answer
      */
-    public function setIdQuestions($id_questions):Answer
+    public function setIdQuestions($idQuestions):Answer
     {
-        $this->id_questions = $id_questions;
+        $this->idQuestions = $idQuestions;
 
         return $this;
     }
