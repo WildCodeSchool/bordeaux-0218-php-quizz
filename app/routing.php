@@ -13,6 +13,8 @@ $routes = [
     'Inscription' => [ // Controller
 
         ['formulaire', '/formulaire', ['GET', 'POST']], // action, url, method
+    
+    	['thanks', '/thanks', ['GET', 'POST']],
     ],
     'Profil' => [ // Controller
         ['profil', '/profil', 'GET'], // action, url, method
@@ -20,6 +22,11 @@ $routes = [
 
     'Home' => [ // Controller
 
-        ['home', '/choucroute', ['GET', 'POST']], // action, url, method
+        ['home', '/home', ['GET', 'POST']], // action, url, method
     ],
+    'Choice' => [ // Controller
+
+        ['choice', '/choice', ['GET', 'POST']], // action, url, method
+    ],
+
 ];

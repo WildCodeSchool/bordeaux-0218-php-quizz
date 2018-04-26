@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Apr 18, 2018 at 07:52 AM
+-- Generation Time: Apr 26, 2018 at 08:28 AM
 -- Server version: 5.6.38
 -- PHP Version: 7.2.1
 
@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `answers` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(55) NOT NULL,
-  `istrue` tinyint(1) NOT NULL,
-  `id_questions` int(11) NOT NULL
+  `isTrue` tinyint(1) NOT NULL,
+  `idQuestions` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -42,7 +42,7 @@ CREATE TABLE `answers` (
 CREATE TABLE `questions` (
   `id` int(11) NOT NULL,
   `questionName` varchar(255) NOT NULL,
-  `id_quizz` int(11) NOT NULL
+  `idQuizz` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -55,8 +55,19 @@ CREATE TABLE `quizz` (
   `id` int(11) NOT NULL,
   `quizzName` varchar(55) NOT NULL,
   `theme` varchar(25) DEFAULT NULL,
-  `id_users` int(11) NOT NULL
+  `idUsers` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `quizz`
+--
+
+INSERT INTO `quizz` (`id`, `quizzName`, `theme`, `idUsers`) VALUES
+(1, 'Test', 'choucroute', 1),
+(2, 'quizz de max', 'culture g', 1),
+(3, 'quizz de david', 'informatique', 1),
+(4, 'quizz de amine', 'informatique', 1),
+(5, 'quizz de marie', 'informatique', 1);
 
 -- --------------------------------------------------------
 
@@ -66,8 +77,8 @@ CREATE TABLE `quizz` (
 
 CREATE TABLE `scores` (
   `id` int(11) NOT NULL,
-  `id_users` int(11) NOT NULL,
-  `id_quizz` int(11) NOT NULL,
+  `idUsers` int(11) NOT NULL,
+  `idQuizz` int(11) NOT NULL,
   `score` int(11) NOT NULL,
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -89,6 +100,13 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `firstName`, `lastName`, `adress`, `mail`, `password`, `status`) VALUES
+(1, 'david', 'leblond', 'marcheprime', 'david@leblond.fr', 'azerty', 'admin');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -97,29 +115,29 @@ CREATE TABLE `users` (
 --
 ALTER TABLE `answers`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_questions` (`id_questions`);
+  ADD KEY `id_questions` (`idQuestions`);
 
 --
 -- Indexes for table `questions`
 --
 ALTER TABLE `questions`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_quizz` (`id_quizz`);
+  ADD KEY `id_quizz` (`idQuizz`);
 
 --
 -- Indexes for table `quizz`
 --
 ALTER TABLE `quizz`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_users` (`id_users`);
+  ADD KEY `id_users` (`idUsers`);
 
 --
 -- Indexes for table `scores`
 --
 ALTER TABLE `scores`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_users` (`id_users`),
-  ADD KEY `id_quizz` (`id_quizz`);
+  ADD KEY `id_users` (`idUsers`),
+  ADD KEY `id_quizz` (`idQuizz`);
 
 --
 -- Indexes for table `users`
@@ -147,7 +165,7 @@ ALTER TABLE `questions`
 -- AUTO_INCREMENT for table `quizz`
 --
 ALTER TABLE `quizz`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `scores`
@@ -159,7 +177,7 @@ ALTER TABLE `scores`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -169,26 +187,26 @@ ALTER TABLE `users`
 -- Constraints for table `answers`
 --
 ALTER TABLE `answers`
-  ADD CONSTRAINT `answers_ibfk_1` FOREIGN KEY (`id_questions`) REFERENCES `questions` (`id`);
+  ADD CONSTRAINT `answers_ibfk_1` FOREIGN KEY (`idQuestions`) REFERENCES `questions` (`id`);
 
 --
 -- Constraints for table `questions`
 --
 ALTER TABLE `questions`
-  ADD CONSTRAINT `questions_ibfk_1` FOREIGN KEY (`id_quizz`) REFERENCES `quizz` (`id`);
+  ADD CONSTRAINT `questions_ibfk_1` FOREIGN KEY (`idQuizz`) REFERENCES `quizz` (`id`);
 
 --
 -- Constraints for table `quizz`
 --
 ALTER TABLE `quizz`
-  ADD CONSTRAINT `quizz_ibfk_1` FOREIGN KEY (`id_users`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `quizz_ibfk_1` FOREIGN KEY (`idUsers`) REFERENCES `users` (`id`);
 
 --
 -- Constraints for table `scores`
 --
 ALTER TABLE `scores`
-  ADD CONSTRAINT `scores_ibfk_1` FOREIGN KEY (`id_users`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `scores_ibfk_2` FOREIGN KEY (`id_quizz`) REFERENCES `quizz` (`id`);
+  ADD CONSTRAINT `scores_ibfk_1` FOREIGN KEY (`idUsers`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `scores_ibfk_2` FOREIGN KEY (`idQuizz`) REFERENCES `quizz` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
