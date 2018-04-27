@@ -3,7 +3,6 @@
 /temp/*
 *.cache
 composer.json
-README.md
 composer.lock
 src/.DS_Store
 src/Model/.DS_Store
