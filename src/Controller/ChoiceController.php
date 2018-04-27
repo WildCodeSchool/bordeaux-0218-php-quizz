@@ -27,21 +27,24 @@ class ChoiceController extends AbstractController
      *
      * @return string
      */
-    public function choice()
-    {      
+     public function choice()
+     {
+       $choice = new ChoiceManager();
+       $allThemes = $choice->allThemes();
 
-            $choice = new ChoiceManager();
-            $allThemes = $choice->allThemes();
+       if (isset($_POST['chosenTheme']))
+       {
 
-        if (isset($_POST['chosenTheme']))
-        {
-            
-            $userChoice = $choice->allQuizz($_POST['chosenTheme']);
-        
-        }
+         $userChoice = $choice->allQuizz($_POST['chosenTheme']);
+       }
 
-        return $this->twig->render('Choice/choice.html.twig', ['themes' => $allThemes , 'choices' => $userChoice]);
-        
-    }
+       else
+       {
+         $userChoice = 'test1';
+       }
 
-}
+       return $this->twig->render('Choice/choice.html.twig', ['themes' => $allThemes , 'choices' => $userChoice]);
+
+     }
+
+   }

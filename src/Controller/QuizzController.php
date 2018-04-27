@@ -30,16 +30,27 @@ class QuizzController extends AbstractController
      */
     public function quizz()
     {
-        $questionManager = new QuestionManager();
-        $answerManager = new AnswerManager();
-        $questions = $questionManager->selectQuestions(1);
-// TODO ATTENTION BOUCLER
-        for ($i=0; $i<10; $i++)
+    
+        if (isset($_POST['chosenQuizz']))
         {
-        $answers [] = $answerManager->selectAnswers($questions[$i]->getId());
+            $quizzChoice=$_POST['chosenQuizz'];
+            
+
+            $questionManager = new QuestionManager();
+            $answerManager = new AnswerManager();
+            $questions = $questionManager->selectQuestions($quizzChoice);
+            for ($i=0; $i<10; $i++)
+            {
+            $answers [] = $answerManager->selectAnswers($questions[$i]->getId());
+            }
+
+            return $this->twig->render('Quizz/quizz.html.twig', ['questions' => $questions, 'answers' => $answers]);
         }
 
-        return $this->twig->render('Quizz/quizz.html.twig', ['questions' => $questions, 'answers' => $answers]);
+        // else
+        // {
+        //     header('Location: /choice');
+        // }
     }
 
 }

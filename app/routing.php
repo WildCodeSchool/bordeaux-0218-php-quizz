@@ -11,14 +11,9 @@
 
 $routes = [
 
-<<<<<<< HEAD
     'Inscription' => [ // Controller
     ['formulaire', '/formulaire', ['GET', 'POST']], // action, url, method
-=======
-        ['formulaire', '/formulaire', ['GET', 'POST']], // action, url, method
-    
-    	['thanks', '/thanks', ['GET', 'POST']],
->>>>>>> 07612d193c2723e50dd28287c7e1bf1abddedceb
+    ['thanks', '/thanks', ['GET', 'POST']],
     ],
 
     'Profil' => [ // Controller
@@ -30,19 +25,18 @@ $routes = [
     ],
 
     'Home' => [ // Controller
-    ['home', '/', ['GET', 'POST']], // action, url, method
+    ['home', '/home', ['GET', 'POST']], // action, url, method
     ],
 
-<<<<<<< HEAD
     'Quizz' => [ // Controller
-    ['quizz', '/quizz', 'GET'], // action, url, method
-=======
-        ['home', '/home', ['GET', 'POST']], // action, url, method
->>>>>>> 07612d193c2723e50dd28287c7e1bf1abddedceb
+    ['quizz', '/quizz', ['POST', 'GET']], // action, url, method
     ],
+
+    'Resultat' => [ // Controller
+    ['resultat', '/resultat', ['GET', 'POST']], // action, url, method
+    ],
+
     'Choice' => [ // Controller
-
-        ['choice', '/choice', ['GET', 'POST']], // action, url, method
+    ['choice', '/choice', ['GET', 'POST']], // action, url, method
     ],
-
 ];
