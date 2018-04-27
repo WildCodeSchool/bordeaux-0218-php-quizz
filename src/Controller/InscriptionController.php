@@ -32,6 +32,7 @@ class InscriptionController extends AbstractController
 
         if (isset($_POST) && count($_POST) === 5)
         {
+<<<<<<< HEAD
             $setMail = new VerificationManager();
         $mail = $setMail->verificationMail($_POST['mail']);
 
@@ -47,8 +48,31 @@ class InscriptionController extends AbstractController
             {
                 header('Location: /formulaire');
             }
+=======
+            $_SESSION['mail']=$_POST['mail'];
+            header('Location: /thanks');
+            var_dump($_SESSION);
+>>>>>>> 07612d193c2723e50dd28287c7e1bf1abddedceb
         }
 
         return $this->twig->render('Inscription/_form.html.twig');
     }
+
+    public function thanks()
+    {
+        if (isset($_SESSION['mail']))
+        {
+            $profil = new ProfilManager();
+            $profilId = $profil->profilId($_SESSION['mail']);
+            $userProfil = $profil->profil($profilId['id']);
+
+
+        return $this->twig->render('Inscription/thanks.html.twig', ['profil' => $userProfil]); 
+
+        }  
+    }
+
+
+
+
 }
