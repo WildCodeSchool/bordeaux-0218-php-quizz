@@ -443,12 +443,13 @@ figure:hover figcaption strong:before {
   color: black;
   background-color: white;
   border-color: white;
+  margin: 2,2,2,2;
 }
 .modal-header{
   margin-top: 5%;
 }
 label.btn:hover {
-    background-color: orange;
+    background-color: green;
     border-color: white;
     text-shadow: 0 3px 2px rgba(0,0,0,0.4);
     -webkit-transform: scale(1.0);
