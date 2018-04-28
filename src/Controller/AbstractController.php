@@ -11,7 +11,6 @@ namespace Controller;
 
 use Twig_Loader_Filesystem;
 use Twig_Environment;
-session_start();
 
 /**
  *
