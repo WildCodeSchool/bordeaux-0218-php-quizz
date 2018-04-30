@@ -14,7 +14,7 @@ namespace Model;
  */
 class AnswerManager extends AbstractManager
 {
-    const TABLE = 'answers';
+    const TABLE = 'answer';
 
 
     /**
@@ -23,12 +23,11 @@ class AnswerManager extends AbstractManager
     public function __construct()
     {
         parent::__construct(self::TABLE);
-        $this->className = __NAMESPACE__ . '\\' . 'Answer';
     }
 
     public function selectAnswers ($id)
     {
-        $query = "SELECT * FROM $this->table WHERE idQuestions = :id ";
+        $query = "SELECT * FROM $this->table WHERE idQuestion = :id ";
 
         $statement = $this->pdoConnection->prepare($query);
         $statement->setFetchMode(\PDO::FETCH_CLASS, $this->className);
@@ -36,5 +35,19 @@ class AnswerManager extends AbstractManager
         $statement->execute();
 
         return $statement->fetchAll();
+    }
+
+    public function insertAnswer ($name, $isTrue, $idQuestion)
+    {
+        $query = "INSERT INTO $this->table (name, isTrue, idQuestion) VALUES (:name, :isTrue, :idQuestion)";
+
+        $statement = $this->pdoConnection->prepare($query);
+
+        $statement->bindParam(':name', $name, \PDO::PARAM_STR);
+        $statement->bindParam(':isTrue', $isTrue, \PDO::PARAM_INT);
+        $statement->bindParam(':idQuestion', $idQuestion, \PDO::PARAM_INT);
+
+        $statement->execute();
+
     }
 }

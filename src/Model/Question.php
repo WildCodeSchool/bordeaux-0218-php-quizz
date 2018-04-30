@@ -19,7 +19,7 @@ class Question
 
     private $questionName;
 
-    private $id_quizz;
+    private $idQuizz;
 
     /**
      * @return int
@@ -66,7 +66,7 @@ class Question
      */
     public function getIdQuizz(): string
     {
-        return $this->id_quizz;
+        return $this->idQuizz;
     }
 
     /**
@@ -74,9 +74,9 @@ class Question
      *
      * @return Question
      */
-    public function setIsTrue($id_quizz):Question
+    public function setIsTrue($idQuizz):Question
     {
-        $this->id_quizz = $id_quizz;
+        $this->idQuizz = $idQuizz;
 
         return $this;
     }

@@ -9,9 +9,8 @@
 
 namespace Controller;
 
-use Model\Users;
-use Model\ProfilManager;
-use Model\ChoiceManager;
+use Model\Quizz;
+use Model\QuizzManager;
 
 /**
  * Class ProfilController
@@ -29,9 +28,8 @@ class ChoiceController extends AbstractController
      */
     public function choice()
     {      
-        var_dump($_POST);
 
-            $choice = new ChoiceManager();
+            $choice = new QuizzManager();
             $allThemes = $choice->allThemes();
 
         if (isset($_POST['chosenTheme']))
@@ -43,7 +41,7 @@ class ChoiceController extends AbstractController
 
         else
         {
-            $userChoice = 'test1';
+            $userChoice = '';
         }
 
         return $this->twig->render('Choice/choice.html.twig', ['themes' => $allThemes , 'choices' => $userChoice]);

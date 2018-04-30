@@ -8,12 +8,9 @@
  */
 
 namespace Controller;
+use Model\ScoreManager;
+use Model\Score;
 
-use Model\Question;
-use Model\Answer;
-use Model\QuizzManager;
-use Model\QuestionManager;
-use Model\AnswerManager;
 
 
 /**
@@ -30,14 +27,20 @@ class ResultatController extends AbstractController
      */
     public function resultat()
     {
-        var_dump($_POST);
         $score = 0;
-        if (isset($_POST)){
-            foreach ($_POST as $idQuestion => $isTrue) {
-                if ($isTrue==1){
+        if (isset($_POST))
+        {
+            foreach ($_POST as $idQuestion => $isTrue) 
+            {
+                if ($isTrue==1)
+                {
                     $score++;
                 }
             }
+
+            $userScore = new ScoreManager();
+            $userScore->insertScore($_SESSION ['chosenQuizz'],1,$score);
+
         }
       return $this->twig->render('Quizz/resultat.html.twig', ['score' => $score]) ;
     }

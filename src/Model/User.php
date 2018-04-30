@@ -8,7 +8,7 @@ namespace Model;
  *
  */
 
-class Users
+class User
 {
     private $id;
 

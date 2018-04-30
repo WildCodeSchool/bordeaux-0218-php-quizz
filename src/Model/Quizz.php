@@ -10,18 +10,20 @@
 namespace Model;
 
 /**
- * Class Answer
+ * Class Quizz
+
  *
  */
-class Answer
+class Quizz
+
 {
     private $id;
 
-    private $name;
+    private $quizzName;
 
-    private $isTrue;
+    private $theme;
 
-    private $idQuestion;
+    private $idUser;
 
     /**
      * @return int
@@ -34,9 +36,11 @@ class Answer
     /**
      * @param mixed $id
      *
-     * @return Answer
+     * @return Quizz
+
      */
-    public function setId($id): Answer
+    public function setId($id): Quizz
+
     {
         $this->id = $id;
 
@@ -46,19 +50,21 @@ class Answer
     /**
      * @return mixed
      */
-    public function getName(): string
+    public function getQuizzName(): string
     {
-        return $this->name;
+        return $this->quizzName;
     }
 
     /**
      * @param mixed $title
      *
-     * @return Answer
+     * @return Quizz
+
      */
-    public function setName($name):Answer
+    public function setQuizzName($quizzName):Quizz
+
     {
-        $this->name = $name;
+        $this->quizzName = $quizzName;
 
         return $this;
     }
@@ -66,19 +72,21 @@ class Answer
     /**
      * @return mixed
      */
-    public function getIsTrue(): string
+    public function getTheme(): string
     {
-        return $this->isTrue;
+        return $this->theme;
     }
 
     /**
      * @param mixed $title
      *
-     * @return Answer
+     * @return Quizz
+
      */
-    public function setIsTrue($isTrue):Answer
+    public function setTheme($theme):Quizz
+
     {
-        $this->isTrue = $isTrue;
+        $this->theme = $theme;
 
         return $this;
     }
@@ -86,19 +94,21 @@ class Answer
     /**
      * @return mixed
      */
-    public function getIdQuestion(): string
+    public function getIdUser(): string
     {
-        return $this->idQuestion;
+        return $this->idUser;
     }
 
     /**
      * @param mixed $title
      *
-     * @return Answer
+     * @return Quizz
+
      */
-    public function setIdQuestion($idQuestion):Answer
+    public function setIdUser($idUser):Quizz
+
     {
-        $this->idQuestion = $idQuestion;
+        $this->idUser = $idUser;
 
         return $this;
     }

@@ -12,7 +12,7 @@ namespace Model;
 /**
  *
  */
-class ChoiceManager extends AbstractManager
+class QuizzManager extends AbstractManager
 {
     const TABLE = 'quizz';
 
@@ -23,7 +23,6 @@ class ChoiceManager extends AbstractManager
     public function __construct()
     {
         parent::__construct(self::TABLE);
-        $this->className = __NAMESPACE__ . '\\' . 'Choice';
     }
 
     public function allThemes ()
@@ -49,11 +48,27 @@ class ChoiceManager extends AbstractManager
         $statement = $this->pdoConnection->prepare($query);
         $statement->setFetchMode(\PDO::FETCH_CLASS, $this->className);
         $statement->bindParam(':theme', $themeChoice, \PDO::PARAM_STR);
-
-        //$statement->bindParam(':theme', $newChoice, \PDO::PARAM_STR);
         
          $statement->execute();
+         
+         
          return $statement->fetchAll();
+
+    }
+
+
+    public function insertQuizz ($quizzName, $theme)
+    {
+        $query = "INSERT INTO $this->table (quizzName, theme, idUser) VALUES (:quizzName, :theme, 1)";
+
+        $statement = $this->pdoConnection->prepare($query);
+
+        $statement->bindParam(':quizzName', $quizzName, \PDO::PARAM_STR);
+        $statement->bindParam(':theme', $theme, \PDO::PARAM_STR);
+
+        $statement->execute();
+
+        return $this->pdoConnection->lastInsertId();
 
     }
     

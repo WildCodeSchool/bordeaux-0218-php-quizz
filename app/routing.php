@@ -11,7 +11,9 @@
 
 $routes = [
     'Quizz' => [ // Controller
-        ['quizz', '/quizz', ['POST', 'GET']], // action, url, method
+        ['quizz', '/quizz', ['POST', 'GET']], 
+        ['editQuizz', '/editQuizz', ['POST', 'GET']],// action, url, method
+        ['none', '/cassoulet', ['POST', 'GET']],
         
     ],
     'Resultat' => [ // Controller
@@ -21,4 +23,5 @@ $routes = [
 
         ['choice', '/choice', ['GET', 'POST']], // action, url, method
     ],
+
 ];
