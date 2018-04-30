@@ -6,3 +6,4 @@ app/db.php
 .DS_Store
 twig_template.html.twig
 child_template.html.twig
+composer.lock

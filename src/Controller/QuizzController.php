@@ -140,12 +140,6 @@ class QuizzController extends AbstractController
     }
 
 
-    public function none()
-    {
-        echo "Hello World!";
-    }
-
-
 }
 
 
