@@ -28,5 +28,4 @@ $routes = [
 
         ['choice', '/choice', ['GET', 'POST']], // action, url, method
     ],
-
 ];

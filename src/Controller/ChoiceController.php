@@ -36,7 +36,7 @@ class ChoiceController extends AbstractController
         if (isset($_POST['chosenTheme']))
         {
             
-            $userChoice = $choice->allQuizz($_POST['chosenTheme']);
+            $userChoice = $choice->allQuizz($_POST['chosenTheme'])  ;
         
         }
 
