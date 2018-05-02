@@ -56,7 +56,7 @@ class UserManager extends AbstractManager
 
     public function verificationMail ($mail)
     {
-        $query = "SELECT * FROM $this->table WHERE mail = ':mail'";
+        $query = "SELECT * FROM $this->table WHERE mail = :mail";
 
         $statement = $this->pdoConnection->prepare($query);
 
@@ -73,7 +73,6 @@ class UserManager extends AbstractManager
 
         if (preg_match('/^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/', $mail) === 1 && count($alreadyInTable)===0)
         {
-
             return $mail;
         }
         else

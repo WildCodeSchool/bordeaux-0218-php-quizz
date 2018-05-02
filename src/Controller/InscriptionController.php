@@ -32,7 +32,7 @@ class InscriptionController extends AbstractController
             $mail = $inscription->verificationMail($_POST['mail']);
             $info = [];
             if ($mail !== TRUE)
-                {
+            {
                 $info['firstName']=$inscription->verificationFirstName($_POST['firstName']);
                 $info['lastName']=$inscription->verificationLastName($_POST['lastName']);
                 $info['adress']=$inscription->verificationAdress($_POST['adress']);
@@ -42,7 +42,7 @@ class InscriptionController extends AbstractController
 
                 $connexion = new ConnexionController();
                 $connexion->connexionFormAfterInscription($info);
-                }
+            }
             else
             {
                 header('Location: /formulaire');
