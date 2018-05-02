@@ -57,85 +57,74 @@ class QuizzController extends AbstractController
     public function editQuizz()
     {
 
-        $quizz = new QuizzManager();
-        $allThemes = $quizz->allThemes();
-
-
-        $quizzToInsert = [];
-        $questionToInsert = [];
-        $answerToInsert = [];
-
-        if (isset($_POST) && count($_POST) === 53)
+        if (isset($_SESSION['connected']) && $_SESSION['connected'] === TRUE)
         {
-            foreach ($_POST as $key => $value) 
+            $quizz = new QuizzManager();
+            $allThemes = $quizz->allThemes();
+
+
+            $quizzToInsert = [];
+            $questionToInsert = [];
+            $answerToInsert = [];
+
+            if (isset($_POST) && count($_POST) === 53)
             {
-               if (trim($value) != '')
-               {
-                    if ($key === 'chosenTheme')
-                    {
-                        $quizzToInsert['theme']=$value;
-                    }
-
-                    else if ($key === 'quizzName')
-                    {
-                        $quizzToInsert['quizzName']=$value;
-                    }
-
-                    else if (is_numeric($key))
-                    {
-                        $questionToInsert[$key]=$value;
-                    }
-
-                    else if (preg_match('/[0-9]{1,2}[A-Z]/', $key))
-                    {
-                        $questionId = preg_split('/[A-Z]/', $key);
-                        $answerId = preg_split('/[0-9]{1,2}/', $key);
-                        $answerToInsert[$questionId[0]][$answerId[1]]=$value;
-                    }
-               } 
-               else
-               {
-                header('Location: /editQuizz');
-               }
-            }
-
-            echo "<pre>";
-            var_dump($quizzToInsert);
-            echo "</pre>";
-
-            echo "<pre>";
-            var_dump($questionToInsert);
-            echo "</pre>";
-
-            echo "<pre>";
-            var_dump($answerToInsert);
-            echo "</pre>";
-
-            $question = new QuestionManager();
-            $answer = new AnswerManager();
-
-            $quizzId = $quizz->insertQuizz($quizzToInsert['quizzName'], $quizzToInsert['theme']);
-
-            for ($i=1; $i<=count($questionToInsert); $i++)
-            {
-                $questionId = $question->insertQuestion($questionToInsert[$i], $quizzId);
-                var_dump($questionId);
-                foreach ($answerToInsert[$i] as $key => $value) 
+                foreach ($_POST as $key => $value) 
                 {
-                    var_dump($answerToInsert[$i]);
-                    $answer->insertAnswer($value, 0, $questionId);
+                   if (trim($value) != '')
+                   {
+                        if ($key === 'chosenTheme')
+                        {
+                            $quizzToInsert['theme']=$value;
+                        }
+
+                        else if ($key === 'quizzName')
+                        {
+                            $quizzToInsert['quizzName']=$value;
+                        }
+
+                        else if (is_numeric($key))
+                        {
+                            $questionToInsert[$key]=$value;
+                        }
+
+                        else if (preg_match('/[0-9]{1,2}[A-Z]/', $key))
+                        {
+                            $questionId = preg_split('/[A-Z]/', $key);
+                            $answerId = preg_split('/[0-9]{1,2}/', $key);
+                            $answerToInsert[$questionId[0]][$answerId[1]]=$value;
+                        }
+                   } 
+                   else
+                   {
+                    header('Location: /editQuizz');
+                   }
                 }
-                
+
+                $question = new QuestionManager();
+                $answer = new AnswerManager();
+
+                $quizzId = $quizz->insertQuizz($quizzToInsert['quizzName'], $quizzToInsert['theme']);
+
+                for ($i=1; $i<=count($questionToInsert); $i++)
+                {
+                    $questionId = $question->insertQuestion($questionToInsert[$i], $quizzId);
+                    foreach ($answerToInsert[$i] as $key => $value) 
+                    {
+                        $answer->insertAnswer($value, 0, $questionId);
+                    }
+                    
+                }
+
             }
 
-
-
-
-
-
+            return $this->twig->render('Quizz/editQuizz.html.twig',['themes'=>$allThemes]);
         }
 
-       return $this->twig->render('Quizz/editQuizz.html.twig',['themes'=>$allThemes]); 
+        else
+        {
+            return $this->twig->render('Home/home.html.twig');
+        }
 
     }
 
