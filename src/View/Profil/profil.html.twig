@@ -1,13 +1,68 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
+{% for info in profil %}
 
-<h1>Profil</h1>
-<ul>
-	{% for info in profil %}
-    	<li><a href="/formulaire">{{ info.id }}. {{ info.firstName }} {{ info.lastName }} {{ info.adress }} {{ info.mail }} {{ info.password }}</a></li>
-    {% else %}
-        <li>Nothing to display</li>
-    {% endfor %}
-</ul>
+<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-3 col-md-3">
+				<b>Nom</b>
+			</div>
+			<div class="col-xs-6 col-md-6"><!-- colonne ou sera récupéré le nom de l'utilisateur -->
+				<p>{{ info.firstName }}</p>
+			</div>
+			<div class="col-xs-3 col-md-3">
+				<a href="#"> Modifier </a>
+			</div>
+		</div>
+</br>
+		<div class="row">
+			<div class="col-xs-3 col-md-3">
+				<b>Prénom</b>
+			</div>
+			<div class="col-xs-6 col-md-6"><!-- colonne ou sera récupéré le prénom de l'utilisateur -->
+				<p>{{ info.lastName }}</p>
+			</div>
+			<div class="col-xs-3 col-md-3">
+				<a href="#"> Modifier </a>
+			</div>
+		</div>
+</br>
+		<div class="row">
+			<div class="col-xs-3 col-md-3">
+				<b>Adresse</b>
+			</div>
+			<div class="col-xs-6 col-md-6"><!-- colonne ou sera récupéré l'adresse postale de l'utilisateur -->
+				<p>{{ info.adress }}</p>
+			</div>
+			<div class="col-xs-3 col-md-3">
+				<a href="#"> Modifier </a>
+			</div>
+		</div>
+</br>
+		<div class="row">
+			<div class="col-xs-3 col-md-3">
+				<b>E-mail</b>
+			</div>
+			<div class="col-xs-6 col-md-6"><!-- colonne ou sera récupéré l'adresse mail de l'utilisateur -->
+				<p>{{ info.mail }}</p>
+			</div>
+			<div class="col-xs-3 col-md-3">
+				<a href="#"> Modifier </a>
+			</div>
+		</div>
+</br>
+		<div class="row">
+			<div class="col-xs-3 col-md-3">
+				<b>Password</b>
+			</div>
+			<div class="col-xs-6 col-md-6"><!-- colonne ou sera récupéré le password de l'utilisateur -->
+				<p type="password">{{ info.password }}</p>
+			</div>
+			<div class="col-xs-3 col-md-3">
+				<a href="#"> Modifier </a>
+			</div>
+		</div>
+	</div>
+{% endfor %}
 {% endblock %}
