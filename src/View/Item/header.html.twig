@@ -1,24 +1,4 @@
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    {% block title %}
-    <title>Wild Code School QUIZZ !!</title>
-    {% endblock %}
-
-    {% block stylesheet %}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <link rel="icon" href="/assets/images/favicon.png">
-    {% endblock %}
-</head>
-
-<header>
+{% extends 'layout.html.twig' %}
 {% block header %}
 <header>
   <div class="navbar-header">
@@ -30,7 +10,7 @@
   </div>
   <nav class="overlay" id="overlay">
     <ul>
-      <li><a href="/">Accueil</a></li>
+      <li><a href="#">Accueil</a></li>
       <li><a href="#">Contact</a></li>
       </br>
       <li>Connexion</li>
@@ -47,7 +27,7 @@
       </li>
       <li><a href="#" class="myButtonValider">Valider</a></li>
       </br>
-      <li><a href="/formulaire">Inscription</a></li>
+      <li><a href="#">Inscription</a></li>
     </ul>
   </nav>
 
@@ -78,43 +58,3 @@
   </nav>
 </header>
 {% endblock %}
-</header>
-
-<body>
-
-{% block content %}
-{% endblock %}
-
-{% block javascript %}
-<script type="text/javascript">
-$(function() {
-  $('a[href*=#]').on('click', function(e) {
-    e.preventDefault();
-    $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500, 'linear');
-  });
-});
-
-</script>
-<script type="text/javascript">
-</script>
-
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
-    <script src="overlay.js"></script>
-    <!-- /Scripts -->
-    <script type="text/javascript">
-
-
-  $('#toggle').click(function() {
-      $(this).toggleClass('toggle-active');
-      $('#overlay').toggleClass('nav-active');
-  });
-  $('#toggle2').click(function() {
-      $(this).toggleClass('toggle2-active');
-      $('#overlay2').toggleClass('nav-active');
-  });
-</script>
-{% endblock %}
-</body>
-
-</html>

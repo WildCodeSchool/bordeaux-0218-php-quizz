@@ -20,6 +20,19 @@ $routes = [
 
     'Home' => [ // Controller
 
-        ['home', '/choucroute', ['GET', 'POST']], // action, url, method
+        ['home', '/', ['GET', 'POST']], // action, url, method
+    ],
+
+    'Quizz' => [ // Controller
+        ['quizz', '/quizz', ['POST', 'GET']], 
+        ['editQuizz', '/editQuizz', ['POST', 'GET']],// action, url, method
+        
+    ],
+    'Resultat' => [ // Controller
+        ['resultat', '/resultat', ['GET', 'POST']], // action, url, method
+    ],
+    'Choice' => [ // Controller
+
+        ['choice', '/choice', ['GET', 'POST']], // action, url, method
     ],
 ];

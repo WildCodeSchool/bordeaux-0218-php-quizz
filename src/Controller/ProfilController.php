@@ -9,8 +9,8 @@
 
 namespace Controller;
 
-use Model\Users;
-use Model\ProfilManager;
+use Model\User;
+use Model\UserManager;
 
 /**
  * Class ProfilController
@@ -28,12 +28,13 @@ class ProfilController extends AbstractController
      */
     public function profil()
     {
+
         if (isset($_SESSION['mail']))
         {
-            $profil = new ProfilManager();
+            $profil = new UserManager();
             $profilId = $profil->profilId($_SESSION['mail']);
-            $userProfil = $profil->profil($profilId['id']);
-        
+            $userProfil = $profil->profil($profilId->getId());
+
 
         return $this->twig->render('Profil/profil.html.twig', ['profil' => $userProfil]);
         }

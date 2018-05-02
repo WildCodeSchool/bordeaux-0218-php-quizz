@@ -34,7 +34,6 @@ abstract class AbstractManager
         $this->className = __NAMESPACE__ . '\\' . ucfirst($table);
     }
 
-
     /**
      * Get all row from database.
      *
