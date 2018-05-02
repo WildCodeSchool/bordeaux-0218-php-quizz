@@ -39,8 +39,7 @@ class InscriptionController extends AbstractController
                 $info['password']=$_POST['password'];
 
                 $inscription->newUser($info);
-                    $_SESSION['mail']=$mail;
-                    header('Location: /profil');
+                    header('Location: /home');
                 }
             else
             {

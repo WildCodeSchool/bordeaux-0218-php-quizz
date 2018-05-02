@@ -32,9 +32,18 @@ class ConnexionController extends AbstractController
     {
       $connexion = new UserManager();
       $isLogged = $connexion->emailConnexion($_POST['email']);
-      echo "<br>";
-      echo "<br>";
-      var_dump($isLogged);
+      if ($isLogged !== FALSE && $_POST['password'] === $isLogged->getPassword())
+      {
+        $_SESSION['id']=$isLogged->getId();
+        $_SESSION['firstName']=$isLogged->getFirstName();
+        $_SESSION['lastName']=$isLogged->getLastName();
+        $_SESSION['connecté']=TRUE;
+        header('Location: /');
+      }
+      else
+      {
+        echo "mdp ou adresse mail incorrect";
+      }
     }
 
 return $this->twig->render('Connexion/connexion.html.twig');
