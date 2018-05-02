@@ -1,12 +1,11 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1>Items</h1>
-    <ul>
-        {% for item in items %}
-            <li><a href="/item/{{ item.id }}">{{ item.id }}. {{ item.title }}</a></li>
-        {% else %}
-            <li>Nothing to display</li>
-        {% endfor %}
-    </ul>
+<form action="" method="POST">
+  <table>
+    <tr><td>E-mail:</td> <td><input type="email" value"" name="email"></td></tr>
+    <tr><td>Mot de passe:</td> <td><input type="text" value"" name="password"></td></tr>
+    <tr><td><input type="submit" value="Signin" name="loginBtn"></td></tr>
+  </table>
+</form>
 {% endblock %}
