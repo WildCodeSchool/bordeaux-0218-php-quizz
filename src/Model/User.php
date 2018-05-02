@@ -1,21 +1,14 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: wcs
- * Date: 23/10/17
- * Time: 10:57
- * PHP version 7
- */
+
 
 namespace Model;
 
 /**
  * Class User
-
  *
  */
-class User
 
+class User
 {
     private $id;
 
@@ -23,14 +16,14 @@ class User
 
     private $lastName;
 
-    private $adress;
+    //private $address;
 
     private $mail;
 
     private $password;
 
-    private $status;
 
+// Get & Setter pour l'id :
     /**
      * @return int
      */
@@ -42,17 +35,17 @@ class User
     /**
      * @param mixed $id
      *
-     * @return User
-
+     * @return Users
      */
     public function setId($id): User
-
     {
         $this->id = $id;
 
         return $this;
     }
 
+
+// Get & Setter pour firstName :
     /**
      * @return mixed
      */
@@ -65,16 +58,15 @@ class User
      * @param mixed $title
      *
      * @return User
-
      */
     public function setFirstName($firstName):User
-
     {
         $this->firstName = $firstName;
 
         return $this;
     }
 
+// Get & Setter pour lastName :
     /**
      * @return mixed
      */
@@ -87,101 +79,55 @@ class User
      * @param mixed $title
      *
      * @return User
-
      */
     public function setLastName($lastName):User
-
     {
         $this->lastName = $lastName;
 
         return $this;
     }
+}
 
-    /**
-     * @return mixed
-     */
-    public function getAdress(): string
-    {
-        return $this->adress;
-    }
+// Get & Setter pour l'email :
+/**
+ * @return mixed
+ */
+public function getMail(): string
+  {
+    return $this->mail;
+  }
 
-    /**
-     * @param mixed $title
-     *
-     * @return User
+/**
+ * @param mixed $title
+ *
+ * @return User
+ */
+public function setMail($mail):User
+  {
+    $this->mail = $mail;
 
-     */
-    public function setAdress($adress):User
+    return $this;
+  }
+}
 
-    {
-        $this->adress = $adress;
+// Get & Setter pour le mot de passe :
+/**
+ * @return mixed
+ */
+public function getPassword(): string
+  {
+    return $this->password;
+  }
 
-        return $this;
-    }
+/**
+ * @param mixed $title
+ *
+ * @return User
+ */
+public function setPassword($password):User
+  {
+    $this->password = $password;
 
-    /**
-     * @return mixed
-     */
-    public function getMail(): string
-    {
-        return $this->mail;
-    }
-
-    /**
-     * @param mixed $title
-     *
-     * @return User
-
-     */
-    public function setMail($mail):User
-
-    {
-        $this->mail = $mail;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPassword(): string
-    {
-        return $this->password;
-    }
-
-    /**
-     * @param mixed $title
-     *
-     * @return User
-
-     */
-    public function setPassword($password):User
-
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getStatus(): string
-    {
-        return $this->status;
-    }
-
-    /**
-     * @param mixed $title
-     *
-     * @return User
-
-     */
-    public function setStatus($status):User
-
-    {
-        $this->status = $status;
-
-        return $this;
-    }
+    return $this;
+  }
 }

@@ -1,9 +1,9 @@
 <?php
 /**
  * Created by PhpStorm.
- * Quizz: root
- * Date: 25/04/18
- * Time: 11:40
+ * User: wcs
+ * Date: 23/10/17
+ * Time: 10:57
  * PHP version 7
  */
 
@@ -11,9 +11,11 @@ namespace Model;
 
 /**
  * Class Quizz
+
  *
  */
 class Quizz
+
 {
     private $id;
 
@@ -21,7 +23,7 @@ class Quizz
 
     private $theme;
 
-    private $idUsers;
+    private $idUser;
 
     /**
      * @return int
@@ -34,32 +36,35 @@ class Quizz
     /**
      * @param mixed $id
      *
-     * @return quizzList
+     * @return Quizz
+
      */
     public function setId($id): Quizz
+
     {
         $this->id = $id;
 
         return $this;
     }
 
-
     /**
-     * @return int
+     * @return mixed
      */
-    public function getQuizzName(): int
+    public function getQuizzName(): string
     {
         return $this->quizzName;
     }
 
     /**
-     * @param mixed $id
+     * @param mixed $title
      *
-     * @return quizzList
+     * @return Quizz
+
      */
-    public function setQuizzName($quizzName): Quizz
+    public function setQuizzName($quizzName):Quizz
+
     {
-        $this->id = $quizzName;
+        $this->quizzName = $quizzName;
 
         return $this;
     }
@@ -76,8 +81,10 @@ class Quizz
      * @param mixed $title
      *
      * @return Quizz
+
      */
     public function setTheme($theme):Quizz
+
     {
         $this->theme = $theme;
 
@@ -87,19 +94,21 @@ class Quizz
     /**
      * @return mixed
      */
-    public function getIdUsers(): int
+    public function getIdUser(): string
     {
-        return $this->idUsers;
+        return $this->idUser;
     }
 
     /**
      * @param mixed $title
      *
      * @return Quizz
+
      */
-    public function setIdUsers($idUsers):Quizz
+    public function setIdUser($idUser):Quizz
+
     {
-        $this->idUsers = $idUsers;
+        $this->idUser = $idUser;
 
         return $this;
     }

@@ -9,10 +9,8 @@
 
 namespace Controller;
 
-use Model\Users;
-use Model\InscriptionManager;
-use Model\ProfilManager;
-use Model\VerificationManager;
+use Model\User;
+use Model\UserManager;
 
 /**
  * Class InscriptionController
@@ -31,13 +29,11 @@ class InscriptionController extends AbstractController
 
         if (isset($_POST) && count($_POST) === 5)
         {
-            $setMail = new VerificationManager();
-        $mail = $setMail->verificationMail($_POST['mail']);
+            $inscription = new UserManager();
+        $mail = $inscription->verificationMail($_POST['mail']);
 
             if ($mail != TRUE)
             {
-
-            $inscription = new InscriptionManager();
             $inscription->newUser($_POST, $mail);
                 $_SESSION['mail']=$mail;
                 header('Location: /profil');
