@@ -29,9 +29,16 @@ class InscriptionController extends AbstractController
         {
             $inscription = new UserManager();
             $mail = $inscription->verificationMail($_POST['mail']);
+            $info = [];
             if ($mail !== TRUE)
                 {
-                $inscription->newUser($_POST, $mail);
+                $info['firstName']=$inscription->verificationFirstName($_POST['firstName']);
+                $info['lastName']=$inscription->verificationLastName($_POST['lastName']);
+                $info['adress']=$inscription->verificationAdress($_POST['adress']);
+                $info['mail']=$mail;
+                $info['password']=$_POST['password'];
+
+                $inscription->newUser($info);
                     $_SESSION['mail']=$mail;
                     header('Location: /profil');
                 }

@@ -18,6 +18,11 @@ $routes = [
         ['profil', '/profil', 'GET'], // action, url, method
     ],
 
+    'Connexion' => [ // Controller
+
+        ['connexionForm', '/connexion', ['GET', 'POST']], // action, url, method
+    ],
+
     'Home' => [ // Controller
 
         ['home', '/', ['GET', 'POST']], // action, url, method
