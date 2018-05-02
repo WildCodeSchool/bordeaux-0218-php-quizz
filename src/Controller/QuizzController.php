@@ -104,7 +104,7 @@ class QuizzController extends AbstractController
                 $question = new QuestionManager();
                 $answer = new AnswerManager();
 
-                $quizzId = $quizz->insertQuizz($quizzToInsert['quizzName'], $quizzToInsert['theme']);
+                $quizzId = $quizz->insertQuizz($quizzToInsert['quizzName'], $quizzToInsert['theme'], $_SESSION['id']);
 
                 for ($i=1; $i<=count($questionToInsert); $i++)
                 {
@@ -115,6 +115,7 @@ class QuizzController extends AbstractController
                     }
                     
                 }
+                return $this->twig->render('Home/home.html.twig', ['connected' => $_SESSION['connected']]);
 
             }
 
@@ -123,7 +124,7 @@ class QuizzController extends AbstractController
 
         else
         {
-            return $this->twig->render('Home/home.html.twig');
+            return $this->twig->render('Home/home.html.twig', ['connected' => $_SESSION['connected']]);
         }
 
     }

@@ -39,7 +39,7 @@ class ResultatController extends AbstractController
             }
 
             $userScore = new ScoreManager();
-            $userScore->insertScore($_SESSION ['chosenQuizz'],1,$score);
+            $userScore->insertScore($_SESSION ['chosenQuizz'],$_SESSION['id'],$score);
 
         }
       return $this->twig->render('Quizz/resultat.html.twig', ['score' => $score]) ;

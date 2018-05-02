@@ -57,14 +57,15 @@ class QuizzManager extends AbstractManager
     }
 
 
-    public function insertQuizz ($quizzName, $theme)
+    public function insertQuizz ($quizzName, $theme, $idUser)
     {
-        $query = "INSERT INTO $this->table (quizzName, theme, idUser) VALUES (:quizzName, :theme, 1)";
+        $query = "INSERT INTO $this->table (quizzName, theme, idUser) VALUES (:quizzName, :theme, :idUser)";
 
         $statement = $this->pdoConnection->prepare($query);
 
         $statement->bindParam(':quizzName', $quizzName, \PDO::PARAM_STR);
         $statement->bindParam(':theme', $theme, \PDO::PARAM_STR);
+        $statement->bindParam(':idUser', $idUser, \PDO::PARAM_STR);
 
         $statement->execute();
 
