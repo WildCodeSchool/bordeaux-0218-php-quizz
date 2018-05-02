@@ -1,10 +1,13 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1>Resultat</h1>
-    <p> {{ score }}/10 </p>
-
+    <section class="result">
+      <div class="circle">
+      <div class="fill">
+      </div>
+      <h3 class="score">{{ score }}/10</h3>
+    </div>
+    </section>
     <a href="/choice">Retour au choix des quizz</a>
-    <a href="/editQuizz">Créer un quizz</a>
-
+  </br>
 {% endblock %}

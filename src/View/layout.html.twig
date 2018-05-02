@@ -31,9 +31,9 @@
           <li>
             <a href="/">Accueil</a>
           </li>
-          <li>
+          {# <li>
             <a href="#">Contact</a>
-          </li>
+          </li> #}
       {# </br> #}
 {% if connected == FALSE %}
           <li>
@@ -56,9 +56,11 @@
             <a href="/formulaire">Inscription</a>
           </li>
 {% endif %}
+{% if connected == TRUE %}
           <li>
             <a href="/profil">Profil</a>
           </li>
+{% endif %}
           <li>
             <form method="POST" action="/disconnect">
               <input class="myButtonValider" type="submit" value="Disconnect" name="disconnect">
