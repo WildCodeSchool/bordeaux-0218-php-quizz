@@ -8,7 +8,7 @@ h1 h2 h3 {
   color: white;
 }
 header{
-  margin-bottom: 30%;
+  margin-bottom: 5%;
 }
 footer{
   line-height: 0px;
@@ -36,7 +36,7 @@ textarea{
     z-index: 5;
 }
 .bar {
-    background-color: white;
+    background-color: black;
     display: block;
     width: 30px;
     height: 5px;
@@ -77,19 +77,20 @@ textarea{
     height: 0;
     visibility: hidden;
     opacity: 0;
-    -webkit-transition: opacity 1s, visibility 1s, height 1s;
+    -webkit-transition: opacity 2s, visibility 2s, height 2s;
 
 }
 .nav-active {
     opacity: 1;
     visibility: visible;
     height: 100%;
+    z-index: 4;
 /*    max-height: 340px;*/
 }
 .overlay ul {
     display: block;
     position: relative;
-    top: 70px;
+    top: 250px;
     left: 0;
     font-family: serif;
     font-size: 20px;
@@ -117,7 +118,7 @@ textarea{
     padding: 9px 10px;
     margin: 8px 15px 8px 15px;
     cursor: pointer;
-    z-index: 2;
+    z-index: 6;
     float: right;
 }
 .telephone{
@@ -134,7 +135,7 @@ textarea{
     height: 0;
     visibility: hidden;
     opacity: 0;
-    -webkit-transition: opacity 1s, visibility 1s, height .1s;
+    -webkit-transition: opacity 2s, visibility 2s, height 2s;
 
 }
 .nav-active {
@@ -366,14 +367,9 @@ figure:hover figcaption strong:before {
 }
 
 /**************************** ICON SCROLL**************************************/
-/*.scroll{
-   position:fixed;
-   margin-left: 48%;
-   margin-top: 63%;
 
-}*/
 .demo a {
-  position: absolute;
+  position: fixed;
   bottom: 60px;
   left: 50%;
   z-index: 2;
