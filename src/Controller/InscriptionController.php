@@ -11,6 +11,7 @@ namespace Controller;
 
 use Model\User;
 use Model\UserManager;
+use Controller\ConnexionController;
 
 /**
  * Class InscriptionController
@@ -37,9 +38,10 @@ class InscriptionController extends AbstractController
                 $info['adress']=$inscription->verificationAdress($_POST['adress']);
                 $info['mail']=$mail;
                 $info['password']=$_POST['password'];
-
                 $inscription->newUser($info);
-                    header('Location: /home');
+
+                $connexion = new ConnexionController();
+                $connexion->connexionFormAfterInscription($info);
                 }
             else
             {

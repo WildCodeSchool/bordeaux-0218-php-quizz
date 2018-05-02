@@ -44,7 +44,7 @@ class QuizzController extends AbstractController
             {
             $answers [] = $answerManager->selectAnswers($questions[$i]->getId());
             }
-            return $this->twig->render('Quizz/quizz.html.twig', ['questions' => $questions, 'answers' => $answers]);
+            return $this->twig->render('Quizz/quizz.html.twig', ['questions' => $questions, 'answers' => $answers, 'connected' => $_SESSION['connected']]);
         }
 
         else
@@ -118,7 +118,7 @@ class QuizzController extends AbstractController
 
             }
 
-            return $this->twig->render('Quizz/editQuizz.html.twig',['themes'=>$allThemes]);
+            return $this->twig->render('Quizz/editQuizz.html.twig',['themes'=>$allThemes, 'connected' => $_SESSION['connected']]);
         }
 
         else

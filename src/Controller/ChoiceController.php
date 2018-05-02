@@ -44,7 +44,7 @@ class ChoiceController extends AbstractController
             $userChoice = '';
         }
 
-        return $this->twig->render('Choice/choice.html.twig', ['themes' => $allThemes , 'choices' => $userChoice]);
+        return $this->twig->render('Choice/choice.html.twig', ['themes' => $allThemes , 'choices' => $userChoice, 'connected' => $_SESSION['connected']]);
         
     }
 

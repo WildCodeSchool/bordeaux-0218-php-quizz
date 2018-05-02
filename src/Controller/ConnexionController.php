@@ -50,4 +50,21 @@ class ConnexionController extends AbstractController
 
   }
 
+  public function connexionFormAfterInscription($info)
+  {
+      $connexion = new UserManager();
+      $isLogged = $connexion->emailConnexion($info['mail']);
+      if ($isLogged !== FALSE && $info['password'] === $isLogged->getPassword())
+      {
+        $_SESSION['id']=$isLogged->getId();
+        $_SESSION['firstName']=$isLogged->getFirstName();
+        $_SESSION['lastName']=$isLogged->getLastName();
+        $_SESSION['connected']=TRUE;
+        header('Location: /');
+      }
+
+  }
+
+
+
 }
