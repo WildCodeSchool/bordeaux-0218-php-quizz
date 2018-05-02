@@ -26,7 +26,7 @@ class HomeController extends AbstractController
     public function home()
     {
 
-        return $this->twig->render('Home/home.html.twig');
+        return $this->twig->render('Home/home.html.twig', ['connected' => $_SESSION['connected']]);
     }
 
     public function disconnect()

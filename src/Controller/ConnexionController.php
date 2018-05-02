@@ -46,7 +46,8 @@ class ConnexionController extends AbstractController
       }
     }
 
-return $this->twig->render('Connexion/connexion.html.twig');
+    return $this->twig->render('Connexion/connexion.html.twig');
 
   }
+
 }
