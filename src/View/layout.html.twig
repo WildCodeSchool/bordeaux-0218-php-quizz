@@ -32,23 +32,30 @@
     <ul>
       <li><a href="/">Accueil</a></li>
       <li><a href="#">Contact</a></li>
-      </br>
-      <li>Connexion</li>
-      <li>
+      {# </br> #}
+      <li><a href="/connexion">Connexion</a></li>
+      {# <li>
         <a href="#">
           <form class="connexion" name="Formulaire" method="POST" action="" novalidate>
             <label for="email"> </label>
             <input class="form-control" type="text" id="email" name="email" placeholder="E-mail" required></a>
-      </li>
-      <li>
+      </li> #}
+     {#  <li>
         <a href="#">
             <label for="password"> </label>
             <input class="form-control" type="text"  id="password" name="password" placeholder="Password" required></a></form>
-      </li>
-      <li><a href="#" class="myButtonValider">Valider</a></li>
-      </br>
+      </li> #}
+      {# <li><a href="#" class="myButtonValider">Valider</a></li> #}
+      {# </br> #}
       <li><a href="/formulaire">Inscription</a></li>
+      <li><a href="/profil">Profil</a></li>
+      <li>
+        <form method="POST" action="/disconnect">
+          <input class="myButtonValider" type="submit" value="Disconnect" name="disconnect">
+        </form>
+      </li>
     </ul>
+    
   </nav>
 
 

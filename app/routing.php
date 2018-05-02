@@ -26,6 +26,7 @@ $routes = [
     'Home' => [ // Controller
 
         ['home', '/', ['GET', 'POST']], // action, url, method
+        ['disconnect', '/disconnect', ['GET', 'POST']],
     ],
 
     'Quizz' => [ // Controller

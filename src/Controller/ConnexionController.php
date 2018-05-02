@@ -37,7 +37,7 @@ class ConnexionController extends AbstractController
         $_SESSION['id']=$isLogged->getId();
         $_SESSION['firstName']=$isLogged->getFirstName();
         $_SESSION['lastName']=$isLogged->getLastName();
-        $_SESSION['connecté']=TRUE;
+        $_SESSION['connected']=TRUE;
         header('Location: /');
       }
       else

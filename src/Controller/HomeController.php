@@ -28,4 +28,13 @@ class HomeController extends AbstractController
 
         return $this->twig->render('Home/home.html.twig');
     }
+
+    public function disconnect()
+    {
+    	if (isset($_POST['disconnect']))
+    	{
+    		session_unset();
+    		header('Location: /');
+    	}
+    }
 }
