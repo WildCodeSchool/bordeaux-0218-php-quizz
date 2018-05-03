@@ -15,27 +15,28 @@ use Model\QuizzManager;
 */
 class ChoiceController extends AbstractController
 {
-  /**
-  * Display item informations specified by $id
-  *
-  * @param  int $id
-  *
-  * @return string
-  */
-  public function choice()
-  {
-    $choice = new QuizzManager();
-    $allThemes = $choice->allThemes();
+    /**
+     * Display item informations specified by $id
+     *
+     * @param  int $id
+     *
+     * @return string
+     */
+     public function choice()
+ {
+         $choice = new QuizzManager();
+         $allThemes = $choice->allThemes();
+     if (isset($_POST['chosenTheme']))
+     {
 
-    if (isset($_POST['chosenTheme']))
-    {
-      $userChoice = $choice->allQuizz($_POST['chosenTheme']);
-    }
-    else
-    {
-      $userChoice = '';
-    }
-    return $this->twig->render('Choice/choice.html.twig',
-    ['themes' => $allThemes , 'choices' => $userChoice]);
-  }
+         $userChoice = $choice->allQuizz($_POST['chosenTheme']);
+
+     }
+     else
+     {
+         $userChoice = '';
+     }
+     return $this->twig->render('Choice/choice.html.twig', ['themes' => $allThemes , 'choices' => $userChoice, 'connected' => $_SESSION['connected']]);
+
+ }
 }

@@ -9,6 +9,7 @@
 namespace Controller;
 use Model\User;
 use Model\UserManager;
+use Controller\ConnexionController;
 /**
 * Class InscriptionController
 *
@@ -24,18 +25,29 @@ class InscriptionController extends AbstractController
   {
     if (isset($_POST) && count($_POST) === 5)
     {
-      $inscription = new UserManager();
-      $mail = $inscription->verificationMail($_POST['mail']);
-      if ($mail !== TRUE)
-      {
-        $inscription->newUser($_POST, $mail);
-        $_SESSION['mail']=$mail;
-        header('Location: /profil');
-      }
-      else
-      {
-        header('Location: /formulaire');
-      }
+        if (isset($_POST) && count($_POST) === 5)
+        {
+            $inscription = new UserManager();
+            $mail = $inscription->verificationMail($_POST['mail']);
+            $info = [];
+            if ($mail !== TRUE)
+            {
+                $info['firstName']=$inscription->verificationFirstName($_POST['firstName']);
+                $info['lastName']=$inscription->verificationLastName($_POST['lastName']);
+                $info['adress']=$inscription->verificationAdress($_POST['adress']);
+                $info['mail']=$mail;
+                $info['password']=$_POST['password'];
+                $inscription->newUser($info);
+
+                $connexion = new ConnexionController();
+                $connexion->connexionFormAfterInscription($info);
+            }
+            else
+            {
+                header('Location: /formulaire');
+            }
+        }
+        return $this->twig->render('Inscription/_form.html.twig');
     }
     return $this->twig->render('Inscription/_form.html.twig');
   }

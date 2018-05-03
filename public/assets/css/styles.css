@@ -466,6 +466,9 @@ label.btn:hover {
   text-align: center;
   color: white;
 }
+.hvr {
+	background-color: #1abc9c;
+}
 
 /**************************************SCORE**********************************/
 .result{

@@ -26,11 +26,17 @@ class ProfilController extends AbstractController
   {
     if (isset($_SESSION['mail']))
     {
-      $profil = new UserManager();
-      $profilId = $profil->profilId($_SESSION['mail']);
-      $userProfil = $profil->profil($profilId->getId());
+        if (isset($_SESSION['connected']) && $_SESSION['connected'] !== FALSE)
+        {
+            $profil = new UserManager();
+            $userProfil = $profil->profil($_SESSION['id']);
 
-      return $this->twig->render('Profil/profil.html.twig', ['profil' => $userProfil]);
+        return $this->twig->render('Profil/profil.html.twig', ['profil' => $userProfil, 'connected' => $_SESSION['connected']]);
+        }
+        else
+        {
+        return $this->twig->render('Home/home.html.twig', ['connected' => $_SESSION['connected']]);
+        }
     }
   }
 }

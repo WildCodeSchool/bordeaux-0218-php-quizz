@@ -6,6 +6,12 @@
     <section class="button">
       <a href="/choice" class="myButton">JOUER A UN QUIZZ</a>
     </section>
+
+{% if connected == TRUE %}
+    <section class="button">
+      <a href="/editQuizz" class="myButton">CREER UN QUIZZ</a>
+    </section>
+{% endif %}
     <a href="/formulaire">Inscrivez-vous</a>
   </div>
   <section class="where">
@@ -94,9 +100,10 @@
     </div>
   </div>
 </div>
-<div class="scroll">
+
+{# <div class="scroll">
   <section id="section03" class="demo">
     <a href="#section04"><span>
     </section>
-  </div>
+  </div> #}
 {% endblock %}

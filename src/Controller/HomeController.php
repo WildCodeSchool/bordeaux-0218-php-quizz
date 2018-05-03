@@ -13,13 +13,23 @@ namespace Controller;
 */
 class HomeController extends AbstractController
 {
-  /**
-  * Display inscription listing
-  *
-  * @return string
-  */
-  public function home()
-  {
-    return $this->twig->render('Home/home.html.twig');
-  }
+    /**
+     * Display inscription listing
+     *
+     * @return string
+     */
+    public function home()
+    {
+
+        return $this->twig->render('Home/home.html.twig', ['connected' => $_SESSION['connected']]);
+    }
+
+    public function disconnect()
+    {
+    	if (isset($_POST['disconnect']))
+    	{
+    		session_unset();
+    		header('Location: /');
+    	}
+    }
 }

@@ -25,15 +25,23 @@ class ResultatController extends AbstractController
     $score = 0;
     if (isset($_POST))
     {
-      foreach ($_POST as $idQuestion => $isTrue)
-      {
-        if ($isTrue==1)
-        {
-          $score++;
-        }
-      }
-      $userScore = new ScoreManager();
-      $userScore->insertScore($_SESSION ['chosenQuizz'],1,$score);
+        $score = 0;
+        if (isset($_POST))
+          {
+            foreach ($_POST as $idQuestion => $isTrue)
+              {
+                if ($isTrue==1)
+                  {
+                    $score++;
+                  }
+              }
+          if ($_SESSION['connected'] === TRUE)
+            {
+              $userScore = new ScoreManager();
+              $userScore->insertScore($_SESSION ['chosenQuizz'],$_SESSION['id'],$score);
+            }
+          }
+      return $this->twig->render('Quizz/resultat.html.twig', ['score' => $score]) ;
     }
     return $this->twig->render('Quizz/resultat.html.twig', ['score' => $score]) ;
   }
