@@ -447,11 +447,9 @@ figure:hover figcaption strong:before {
   margin-top: 5px;
   margin-top: 5px;
 }
-
 .btn::selection {
   background-color: #44c767;
 }
-
 label.btn:hover {
   background-color: #1abc9c;
   border-color: white;

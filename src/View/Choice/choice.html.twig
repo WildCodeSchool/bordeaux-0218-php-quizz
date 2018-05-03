@@ -1,36 +1,28 @@
 {% extends 'layout.html.twig' %}
-
 {% block content %}
-	
-
-		<div class=container>
-				<form method="post" action="">
-					<p>
-					<label for="chosenTheme">Sélectionner un Thème</label><br />
-				     <select name="chosenTheme" id="chosenTheme">
-				     	<option value="">Tous les Quizz</option>
-{% for info in themes %}
-				          <option value="{{ info.theme }}">{{ info.theme }}</option>
-{% endfor %}
-				     </select>
-
-				     <input type="submit" name="themeChoice" value="Valider" />
-
-					</p>
-				</form>
-
-				<form method="post" action="/quizz">
-					<p>
-					<label for="chosenQuizz">Sélectionner un Quizz</label><br />
-				     <select name="chosenQuizz" id="chosenQuizz">
-{% for info in choices %}
-				          <option value="{{ info.id }}">{{ info.quizzName }}</option>
-{% endfor %}
-				     </select>
-				     <input type="submit" name="quizzChoice" value="Valider" />
-
-					</p>
-				</form>
-		</div>
-
+<div class=container>
+	<form method="post" action="">
+		<p>
+			<label for="chosenTheme">Sélectionner un Thème</label><br />
+			<select name="chosenTheme" id="chosenTheme">
+				<option value="">Tous les Quizz</option>
+				{% for info in themes %}
+				<option value="{{ info.theme }}">{{ info.theme }}</option>
+			{% endfor %}
+		</select>
+		<input type="submit" name="themeChoice" value="Valider" />
+	</p>
+</form>
+<form method="post" action="/quizz">
+	<p>
+		<label for="chosenQuizz">Sélectionner un Quizz</label><br />
+		<select name="chosenQuizz" id="chosenQuizz">
+		{% for info in choices %}
+		<option value="{{ info.id }}">{{ info.quizzName }}</option>
+	{% endfor %}
+</select>
+<input type="submit" name="quizzChoice" value="Valider" />
+</p>
+</form>
+</div>
 {% endblock %}

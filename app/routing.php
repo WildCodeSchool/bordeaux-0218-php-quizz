@@ -8,7 +8,6 @@
 *
 * @link     https://github.com/WildCodeSchool/simple-mvc
 */
-
 $routes = [
   'Inscription' => [ // Controller
     ['formulaire', '/formulaire', ['GET', 'POST']], // action, url, method
