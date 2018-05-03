@@ -8,7 +8,7 @@
 					<p>
 					<label for="chosenTheme">Sélectionner un Thème</label><br />
 				     <select name="chosenTheme" id="chosenTheme">
-				     	<option value="">Tous les Quizz</option>
+				     	<option value="allQuizz">Tous les Quizz</option>
 {% for info in themes %}
 				          <option value="{{ info.theme }}">{{ info.theme }}</option>
 {% endfor %}
