@@ -13,7 +13,8 @@ $routes = [
         ['formulaire', '/formulaire', ['GET', 'POST']], // action, url, method
     ],
     'Profil' => [ // Controller
-        ['profil', '/profil', 'GET'], // action, url, method
+        ['profil', '/profil', ['GET', 'POST']], // action, url, method
+        ['editProfil', '/editprofil', ['GET', 'POST']],
     ],
     'Connexion' => [ // Controller
         ['connexionForm', '/connexion', ['GET', 'POST']], // action, url, method

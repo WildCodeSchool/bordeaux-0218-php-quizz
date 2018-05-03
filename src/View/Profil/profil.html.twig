@@ -16,10 +16,14 @@
                             <li><p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span>{{ info.mail }} <a href="#"> Modifier </a></p></li>
                             <li><p><span class="glyphicon glyphicon-map-marker one" style="width:50px;"></span>{{ info.adress }} <a href="#"> Modifier </a></p></li>
                             <li><p> Password : ************ <a href="#"> Modifier </a></p></a></li>
-														<li><img src="/assets/images/cup.svg" class="logoscore">
+														<li><img src="/assets/images/cup.svg" class="logoscore"><img src="/assets/images/picto.png" class="picto"></li>
                           </ul>
                       </div>
                   </div>
                 </div>
 {% endfor %}
+
+	<p>Score Moyen</p>
+	<p>{{ averageScore }}</p>
+
 {% endblock %}

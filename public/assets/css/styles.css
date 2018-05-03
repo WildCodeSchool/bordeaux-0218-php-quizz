@@ -4,13 +4,21 @@ body {
   background: url("/assets/images/image-background2.png") no-repeat center fixed;
   -webkit-background-size: cover; /* pour anciens Chrome et Safari */
   background-size: cover; /* version standardisée */
+  font-family: 'Architects Daughter', cursive;}
+
 }
 /* body{
    background-image: url("/assets/images/image-background2.png");
    background-repeat: no-repeat;
    background-attachment: fixed; */
-
-font-family: 'Architects Daughter', cursive;}
+.wild{
+  display: flex;
+  justify-content: center;
+}
+.wildcodeschool{
+  display: flex;
+  justify-content: center;
+}
 h1 h2 h3 {
   margin-top: 0px;
   margin-bottom: 0px;
@@ -114,8 +122,6 @@ textarea{
   visibility: hidden;
   opacity: 0;
   -webkit-transition: opacity 2s, visibility 2s, height 2s;
-
-
 }
 .nav-active {
   opacity: 1;
@@ -212,14 +218,14 @@ textarea{
 /********************APPRENDS À CODER SANS CHAUSSURES *************************/
 .slogant{
   text-align: center;
-  color: white;
-  text-shadow: 5px 5px 5px rgba(0, 0, 0, 1);
+  color: black;
+  text-shadow: 11px 14px 30px rgba(0, 0, 0, 1);
   margin-left: 2px;
   margin-right: 2px;
 }
 /***************************** BOUTTON ****************************************/
 .myButton {
-  background-color:#44c767;
+  background-color:#1abc9c;
   border-radius:8px;
   display:inline-block;
   cursor:pointer;
@@ -249,7 +255,7 @@ textarea{
   padding-bottom: 12px;
 }
 .myButtonValider {
-  background-color:#44c767;
+  background-color:#1abc9c;
   -moz-border-radius:8px;
   -webkit-border-radius:8px;
   border-radius:8px;
@@ -276,7 +282,7 @@ textarea{
 /******************************** WHERE ?**************************************/
 .where{
   text-align:center;
-  color: white;
+  color: black;
   text-shadow: 11px 14px 30px rgba(0, 0, 0, 1);
   padding-top: 5%;
   margin-left: 20px;
@@ -480,12 +486,12 @@ figure:hover figcaption strong:before {
 .btn-primary{
   color: black;
   background-color: white;
-  border-color: white;
+  border-color: black;
   margin-top: 5px;
   margin-top: 5px;
 }
 .btn::selection {
-  background-color: #44c767;
+  background-color: #1abc9c;
 }
 label.btn:hover {
   background-color: #1abc9c;

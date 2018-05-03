@@ -54,4 +54,35 @@ class ScoreManager extends AbstractManager
         $average = $sumScores/count($scores);
         return $average;
     }
+    public function averageScore ($idUser)
+    {
+         $query = "SELECT score FROM $this->table WHERE idUser=:idUser";
+
+         $statement = $this->pdoConnection->prepare($query);
+
+         $statement->setFetchMode(\PDO::FETCH_CLASS, $this->className);
+
+        $statement->bindParam(':idUser', $idUser, \PDO::PARAM_INT);
+
+        $statement->execute();
+
+        $scores = $statement->fetchAll();
+
+        $sumScores = 0;
+
+        // echo "<pre>";
+        // var_dump($scores);
+        // echo "</pre>";
+
+        foreach ($scores as $game => $score)
+        {
+            $getScore = $score->getScore();
+            $sumScores += $getScore;
+        }
+
+        $average = $sumScores/count($scores);
+
+        return $average;
+    }
+
 }
