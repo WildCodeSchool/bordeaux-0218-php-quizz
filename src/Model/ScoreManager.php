@@ -73,7 +73,15 @@ class ScoreManager extends AbstractManager
             $sumScores += $getScore;
         }
 
-        $average = $sumScores/count($scores);
+        if (count($scores)>0)
+        {
+            $average = $sumScores/count($scores);
+        }
+
+        else
+        {
+            $average = 0;
+        }
 
         return $average;
     }
