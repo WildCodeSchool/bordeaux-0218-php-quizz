@@ -32,25 +32,59 @@ class QuizzController extends AbstractController
     public function quizz()
     {
 
+        $questionManager = new QuestionManager();
+        $answerManager = new AnswerManager();
+
         if (isset($_POST['chosenQuizz']))
         {
-            $_SESSION ['chosenQuizz']=$_POST['chosenQuizz'];
-            
+            $_SESSION['count']=0;
 
-            $questionManager = new QuestionManager();
-            $answerManager = new AnswerManager();
-            $questions = $questionManager->selectQuestions($_SESSION ['chosenQuizz']);
-            for ($i=0; $i<10; $i++)
-            {
-            $answers [] = $answerManager->selectAnswers($questions[$i]->getId());
-            }
-            return $this->twig->render('Quizz/quizz.html.twig', ['questions' => $questions, 'answers' => $answers, 'connected' => $_SESSION['connected']]);
+            $_SESSION['chosenQuizz']=$_POST['chosenQuizz'];
+
+            $_SESSION['score']=0;
+
+            $allQuestions = $questionManager->selectQuestions($_SESSION ['chosenQuizz']);
+
+            $_SESSION['quizzLength']=count($allQuestions);
+
+            $question = $allQuestions[$_SESSION['count']]->getQuestionName();
+            $answers = $answerManager->selectAnswers($allQuestions[$_SESSION['count']]->getId());
+
+            $_SESSION['count'] ++;
+
+            return $this->twig->render('Quizz/quizz.html.twig', ['question' => $question, 'answers' => $answers, 'connected' => $_SESSION['connected']]);
+        }
+
+        else if (isset($_POST['submit']) && $_SESSION['count']<$_SESSION['quizzLength'])
+        {
+            var_dump($_POST);
+
+            $allQuestions = $questionManager->selectQuestions($_SESSION['chosenQuizz']);
+
+            $question = $allQuestions[$_SESSION['count']]->getQuestionName();
+
+            $answers = $answerManager->selectAnswers($allQuestions[$_SESSION['count']]->getId());
+
+            $_SESSION['count'] ++; 
+
+            $_SESSION['score'] += $_POST['isTrue'];
+
+
+            return $this->twig->render('Quizz/quizz.html.twig', ['question' => $question, 'answers' => $answers, 'connected' => $_SESSION['connected']]);
+        }
+
+
+        else if ($_SESSION['count'] === $_SESSION['quizzLength'])
+        {
+            $_SESSION['score'] += $_POST['isTrue'];
+            header('Location: /resultat');
         }
 
         else
         {
             header('Location: /choice');
         }
+
     }
 
 

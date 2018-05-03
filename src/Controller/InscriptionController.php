@@ -50,6 +50,6 @@ class InscriptionController extends AbstractController
         }
 
 
-        return $this->twig->render('Inscription/_form.html.twig');
+        return $this->twig->render('Inscription/inscription.html.twig');
     }
 }

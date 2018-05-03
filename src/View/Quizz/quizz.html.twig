@@ -3,31 +3,24 @@
 <section class="QuizzName">
   <h2> QUIZ </h2>
 </section>
-<form method="post" action="/resultat">
+<form method="post" action="/quizz">
   <div class="container-fluid ">
-    {% for question in questions %}
     <div class="modal-header">
-      <h3>{{ question.questionName }}</h3>
+      <h3>{{ question }}</h3>
     </div>
-    {% for answer in answers %}
-    {% for answer1 in answer %}
-    {% if answer1.idQuestion == question.id %}
+{% for answer in answers %}
     <div class="modal-body">
       <div class="col-xs-6 ">
         <div class="quiz" id="quiz" data-toggle="buttons">
           <label class="btn btn-lg btn-primary btn-block">
-            <input class="form-check-input" type="radio" name="{{ answer1.idQuestion }}"
-            value="{{ answer1.isTrue }}">{{ answer1.name }}</label>
+            <input class="form-check-input" type="radio" name="isTrue"
+            value="{{ answer.isTrue }}">{{ answer.name }}</label>
         </div>
       </div>
     </div>
-  {% endif %}
 {% endfor %}
-{% else %}
-<p>Nothing to display</p>
-{% endfor %}
-{% endfor %}
+
 </div>
-<button type="submit" class="myButton"> Valider </button>
+<button type="submit" name="submit" value="submit" class="myButton"> Valider </button>
 </form>
 {% endblock %}
