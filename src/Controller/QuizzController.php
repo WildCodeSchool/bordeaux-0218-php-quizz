@@ -37,27 +37,35 @@ class QuizzController extends AbstractController
 
         if (isset($_POST['chosenQuizz']))
         {
-            $_SESSION['count']=0;
+                $_SESSION['count']=0;
 
-            $_SESSION['chosenQuizz']=$_POST['chosenQuizz'];
+                $_SESSION['chosenQuizz']=$_POST['chosenQuizz'];
 
-            $_SESSION['score']=0;
+                $_SESSION['score']=0;
 
-            $allQuestions = $questionManager->selectQuestions($_SESSION ['chosenQuizz']);
+                $allQuestions = $questionManager->selectQuestions($_SESSION ['chosenQuizz']);
 
-            $_SESSION['quizzLength']=count($allQuestions);
+                $_SESSION['quizzLength']=count($allQuestions);
 
-            $question = $allQuestions[$_SESSION['count']]->getQuestionName();
-            $answers = $answerManager->selectAnswers($allQuestions[$_SESSION['count']]->getId());
+                $question = $allQuestions[$_SESSION['count']]->getQuestionName();
+                $answers = $answerManager->selectAnswers($allQuestions[$_SESSION['count']]->getId());
 
-            $_SESSION['count'] ++;
+                
 
-            return $this->twig->render('Quizz/quizz.html.twig', ['question' => $question, 'answers' => $answers, 'connected' => $_SESSION['connected']]);
+            if (isset($_POST['isTrue']))
+            {
+                $_SESSION['count'] ++;
+
+                return $this->twig->render('Quizz/quizz.html.twig', ['question' => $question, 'answers' => $answers, 'connected' => $_SESSION['connected']]);
+            }
+            else
+            {
+                return $this->twig->render('Quizz/quizz.html.twig', ['question' => $question, 'answers' => $answers, 'connected' => $_SESSION['connected']]);
+            }
         }
 
         else if (isset($_POST['submit']) && $_SESSION['count']<$_SESSION['quizzLength'])
         {
-            var_dump($_POST);
 
             $allQuestions = $questionManager->selectQuestions($_SESSION['chosenQuizz']);
 
@@ -65,12 +73,19 @@ class QuizzController extends AbstractController
 
             $answers = $answerManager->selectAnswers($allQuestions[$_SESSION['count']]->getId());
 
-            $_SESSION['count'] ++; 
+            
 
-            $_SESSION['score'] += $_POST['isTrue'];
-
-
-            return $this->twig->render('Quizz/quizz.html.twig', ['question' => $question, 'answers' => $answers, 'connected' => $_SESSION['connected']]);
+            if (isset($_POST['isTrue']))
+            {
+                $_SESSION['score'] += $_POST['isTrue'];
+                $_SESSION['count'] ++;
+                
+                return $this->twig->render('Quizz/quizz.html.twig', ['question' => $question, 'answers' => $answers, 'connected' => $_SESSION['connected']]);
+            }
+            else
+            {
+                return $this->twig->render('Quizz/quizz.html.twig', ['question' => $question, 'answers' => $answers, 'connected' => $_SESSION['connected']]);
+            }
         }
 
 
