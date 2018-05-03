@@ -29,13 +29,11 @@ class ResultatController extends AbstractController
     {
       $score = $_SESSION['score'];
         
-      if ($_SESSION['connected'] === TRUE)
+      if ($_SESSION['connected'] === TRUE && !isset($_SESSION['inserted']) )
         {
           $userScore = new ScoreManager();
           $userScore->insertScore($_SESSION ['chosenQuizz'],$_SESSION['id'],$score);
         }
-
-      unset($_SESSION['score']);
           
       return $this->twig->render('Quizz/resultat.html.twig', ['score' => $score]) ;
     }

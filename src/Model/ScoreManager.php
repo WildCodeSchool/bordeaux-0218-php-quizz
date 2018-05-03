@@ -31,6 +31,7 @@ class ScoreManager extends AbstractManager
     public function insertScore ($idQuizz, $idUser, $score)
     {
         $date = date("Y-m-d");
+        $_SESSION['inserted']=TRUE;
 
 
         $query = "INSERT INTO $this->table (idQuizz,idUser,score,scoreDate) VALUES (:idQuizz,:idUser,:score,:scoreDate)";
