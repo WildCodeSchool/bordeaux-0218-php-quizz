@@ -11,6 +11,8 @@ namespace Controller;
 
 use Model\User;
 use Model\UserManager;
+use Model\Score;
+use Model\ScoreManager;
 
 /**
  * Class ProfilController
@@ -31,9 +33,11 @@ class ProfilController extends AbstractController
         if (isset($_SESSION['connected']) && $_SESSION['connected'] !== FALSE)
         {
             $profil = new UserManager();
+            $score = new ScoreManager();
+            $averageScore = number_format($score->averageScore($_SESSION['id']), 2);
             $userProfil = $profil->profil($_SESSION['id']);
 
-            return $this->twig->render('Profil/profil.html.twig', ['profil' => $userProfil, 'connected' => $_SESSION['connected']]);
+            return $this->twig->render('Profil/profil.html.twig', ['profil' => $userProfil, 'connected' => $_SESSION['connected'], 'averageScore' => $averageScore]);
         }
 
         else
