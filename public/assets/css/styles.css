@@ -1,14 +1,25 @@
-
-body{
-  background-color: orange;
+body {
+  margin:0;
+  padding:0;
+  background: url("/assets/images/image-background2.png") no-repeat center fixed;
+  -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+  background-size: cover; /* version standardisée */
 }
+/* body{
+   background-image: url("/assets/images/image-background2.png");
+   background-repeat: no-repeat;
+   background-attachment: fixed; */
+
+font-family: 'Architects Daughter', cursive;}
 h1 h2 h3 {
   margin-top: 0px;
   margin-bottom: 0px;
   color: white;
 }
+li{
+  list-style-type: none;
+}
 header{
-  <<<<<<< HEAD
   margin-bottom: 5%;
 }
 footer{
@@ -22,6 +33,30 @@ textarea{
   color: black;
   font-size: 15px;
   border-radius: 3px;
+}
+.logoMenu{
+  height: 20%;
+  width: 20%;
+  margin-bottom: 5%;
+}
+.logoscore{
+  height: 20%;
+  width: 20%;
+}
+.profile-img {
+	width: 96px;
+	height: 96px;
+	margin: 0 auto 10px;
+	display: block;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+}
+.panel-body{
+  background-color: none;
+}
+.jumbotron{
+  background-color: none;
 }
 /****************************** HEADER ****************************************/
 /****************************** MENU ****************************************/
@@ -37,7 +72,7 @@ textarea{
   z-index: 5;
 }
 .bar {
-  background-color: black;
+  background-color: white;
   display: block;
   width: 30px;
   height: 5px;
@@ -71,7 +106,7 @@ textarea{
 }
 .overlay {
   position: fixed;
-  background-image: linear-gradient(120deg, orange 0%, orange 100%);
+  background-image: linear-gradient(120deg, #ffa644 0%, #ffa644 100%);
   top: 0;
   left: 0;
   width: 100%;
@@ -93,10 +128,10 @@ textarea{
 .overlay ul {
   display: block;
   position: relative;
-  top: 70px;
+  top: 150px;
   left: 0;
   font-family: serif;
-  font-size: 20px;
+  font-size: 35px;
   font-weight: 400;
   text-align: center;
   list-style: none;
@@ -125,13 +160,13 @@ textarea{
   float: right;
 }
 .telephone{
-  background-color: orange;
+  background-color: none;
   width: 40px;
   height: 40px;
   border: 0;
 }
 .overlay2 {
-  background-image: linear-gradient(120deg, orange 0%, orange 100%);
+  background-image: linear-gradient(120deg, #23a377 0%, #23a377 100%);
   top: 0;
   left: 0;
   width: 100%;
@@ -152,7 +187,7 @@ textarea{
   display: block;
   position: relative;
   font-family: serif;
-  font-size: 20px;
+  font-size: 35px;
   font-weight: 100;
   text-align: center;
   list-style: none;
@@ -167,34 +202,36 @@ textarea{
   color: #fff;
   text-decoration: none;
 }
+.form-control{
+  font-size: 20px;
+}
+.textarea{
+  font-size: 20px;
+}
 
 /********************APPRENDS À CODER SANS CHAUSSURES *************************/
 .slogant{
   text-align: center;
   color: white;
-  text-shadow: 11px 14px 30px rgba(0, 0, 0, 1);
+  text-shadow: 5px 5px 5px rgba(0, 0, 0, 1);
   margin-left: 2px;
   margin-right: 2px;
 }
 /***************************** BOUTTON ****************************************/
 .myButton {
   background-color:#44c767;
-  -moz-border-radius:8px;
-  -webkit-border-radius:8px;
   border-radius:8px;
   display:inline-block;
   cursor:pointer;
   color:#ffffff;
   font-family:Arial;
   font-size:20px;
-  font-weight:;
   padding:15px 15px;
   margin-right: 5%;
   margin-left: 5%;
   margin-top: 10px;
   margin-bottom: 10px;
   text-decoration:none;
-  text-shadow:0px 1px 0px #2f6627;
 }
 .myButton:hover {
   background-color:white;
@@ -353,7 +390,7 @@ figcaption strong {
 }
 figcaption strong:before {
   content:" ";
-  border-top:solid 3px orange;
+  border-top:solid 3px white;
   width:140%;
   display:block;
   clear:both;
@@ -361,7 +398,7 @@ figcaption strong:before {
   -webkit-transition: all .15s ease-in-out;
 }
 figure:hover figcaption {
-  background-color:orange;
+  background-color: black;
   -webkit-transition: all .15s ease-in-out;
 }
 figure:hover figcaption strong:before {
@@ -471,19 +508,24 @@ label.btn:hover {
 }
 
 /**************************************SCORE**********************************/
+.titreResultat{
+  text-align: center;
+}
 .result{
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 .circle{
   position: relative;
-  width: 400px;
-  height: 400px;
+  width: 200px;
+  height: 200px;
   background: #bdc3c7;
-  -webkit-border-radius: 200px;
-  -moz-border-radius: 200px;
-  border-radius: 200px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
   overflow: hidden;
 }
 
