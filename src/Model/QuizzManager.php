@@ -72,6 +72,11 @@ class QuizzManager extends AbstractManager
         return $this->pdoConnection->lastInsertId();
 
     }
+
+    public function selectAllListTen(): array
+    {
+        return $this->pdoConnection->query("SELECT * FROM $this->table LIMIT 10", \PDO::FETCH_CLASS, $this->className)->fetchAll();
+    }
     
 }
 

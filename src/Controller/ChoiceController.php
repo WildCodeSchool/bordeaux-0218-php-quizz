@@ -41,15 +41,13 @@ class ChoiceController extends AbstractController
 
         else if (isset($_POST['chosenTheme']) && $_POST['chosenTheme'] === 'allQuizz')
         {
-            $userChoice = $choice->selectAll();
+            $userChoice = $choice->selectAllListTen();
         }
 
         else
         {
             $userChoice = '';
         }
-
-        var_dump($_POST);
 
         return $this->twig->render('Choice/choice.html.twig', ['themes' => $allThemes , 'choices' => $userChoice, 'connected' => $_SESSION['connected']]);
         
