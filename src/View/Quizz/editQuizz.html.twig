@@ -1,0 +1,48 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+
+
+<h1>Questions</h1>
+    <form method="post" action="">
+      <div class=container>
+        <p>
+          <label for="chosenTheme">Sélectionner un Thème</label><br />
+          <select name="chosenTheme" id="chosenTheme">
+{% for info in themes %}
+            <option value="{{ info.theme }}">{{ info.theme }}</option>
+{% endfor %}
+          </select>
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="quizzName">Nom du Quizz</label>
+        <textarea class="form-control" id="quizzName" rows="1" cols="45" placeholder="Entrez ici le nom de votre quizz" name="quizzName"></textarea>
+      </div>
+{% for question in 1..10 %}
+    <br>    
+      <div class="form-group">
+        <label for="question">Question {{ question }}</label>
+        <textarea class="form-control" id="question" rows="1" cols="25" placeholder="Entrez ici votre question" name="{{ question }}"></textarea>
+      </div>
+    <br>
+
+    {% for answer in 'A'..'D' %}
+       
+        <div class="form-group">
+        <label for="answer">Réponse {{ answer }} </label>
+        <textarea class="form-control" id="answer" rows="1" cols="10" placeholder="entrez ici votre réponse" name="{{ question ~ answer }}"></textarea>
+      </div>
+
+
+{% endfor %}
+{% endfor %}
+        <button type="submit" class="btn btn-primary" name="submit" value="validé"> Valider </button>
+    </form>
+
+    <a href="/choice">Choix du Quizz</a>
+
+
+
+{% endblock %}
