@@ -49,22 +49,12 @@ class QuizzController extends AbstractController
 
                 $question = $allQuestions[$_SESSION['count']]->getQuestionName();
                 $answers = $answerManager->selectAnswers($allQuestions[$_SESSION['count']]->getId());
-
-                
-
-            if (isset($_POST['isTrue']))
-            {
                 $_SESSION['count'] ++;
 
                 return $this->twig->render('Quizz/quizz.html.twig', ['question' => $question, 'answers' => $answers, 'connected' => $_SESSION['connected']]);
-            }
-            else
-            {
-                return $this->twig->render('Quizz/quizz.html.twig', ['question' => $question, 'answers' => $answers, 'connected' => $_SESSION['connected']]);
-            }
         }
 
-        else if (isset($_POST['submit']) && $_SESSION['count']<$_SESSION['quizzLength'])
+        else if (!isset($_POST['chosenQuizz']) && isset($_POST['submit']) && $_SESSION['count']<$_SESSION['quizzLength'])
         {
 
             $allQuestions = $questionManager->selectQuestions($_SESSION['chosenQuizz']);
