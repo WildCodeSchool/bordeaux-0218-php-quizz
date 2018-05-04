@@ -1,13 +1,14 @@
 {% extends 'layout.html.twig' %}
-
 {% block content %}
-
-<div class="allpage">
+  <div class="wildcodeschool">
+    <img src="/assets/images/logo.png" class="wild" width="10%" height="10%" />
+  </div>
   <section class="slogant">
     <h2> APPRENDS À CODER SANS CHAUSSURES </h2>
     <section class="button">
       <a href="/choice" class="myButton">JOUER A UN QUIZZ</a>
     </section>
+
 {% if connected == TRUE %}
     <section class="button">
       <a href="/editQuizz" class="myButton">CREER UN QUIZZ</a>
@@ -15,26 +16,24 @@
 {% endif %}
     <a href="/formulaire">Inscrivez-vous</a>
 
-  </div>
   <section class="where">
     <h3> Formation développeur web ou mobile en 5 mois </h3>
     <h4> Où trouver la Wild Code School ? </h4>
     <img src="http://wiccaradio.net/cercle/wp-content/uploads/2017/09/separateur.png" class="separateur" width="50%" height="2%">
   </br>
 </section>
-
 <div class="container">
   <div class="row">
     <div class="col-md-4 col-sm-6">
+      <a href="https://wildcodeschool.fr/bordeaux/">
       <figure class="Bordeaux">
         <figcaption>
-          <a href="">
             <strong>Bordeaux</strong>
-          </a>
         </figcaption>
       </figure>
     </div>
     <div class="col-md-4 col-sm-6">
+      <a href="https://wildcodeschool.fr/paris/">
       <figure class="Paris">
         <figcaption>
           <strong>Paris</strong>
@@ -42,6 +41,7 @@
       </figure>
     </div>
     <div class="col-md-4 col-sm-6">
+      <a href="https://wildcodeschool.fr/lyon/">
       <figure class="Lyon">
         <figcaption>
           <strong>Lyon</strong>
@@ -49,15 +49,16 @@
       </figure>
     </div>
     <div class="col-md-4 col-sm-6">
+      <a href="https://wildcodeschool.fr/lille/">
       <figure class="Lille">
         <figcaption>
-          <a href="">
             <strong>Lille</strong>
           </a>
         </figcaption>
       </figure>
     </div>
     <div class="col-md-4 col-sm-6">
+      <a href="https://wildcodeschool.fr/strasbourg/">
       <figure class="Strasbourg">
         <figcaption>
           <strong>Strasbourg</strong>
@@ -65,15 +66,15 @@
       </figure>
     </div>
     <div class="col-md-4 col-sm-6">
+      <a href="https://wildcodeschool.fr/la-loupe/">
       <figure class="LaLoupe">
         <figcaption>
-          <a href="">
             <strong>La loupe</strong>
-          </a>
         </figcaption>
       </figure>
     </div>
     <div class="col-md-4 col-sm-6">
+      <a href="https://wildcodeschool.fr/toulouse/">
       <figure class="Toulouse">
         <figcaption>
           <strong>Toulouse</strong>
@@ -81,6 +82,7 @@
       </figure>
     </div>
     <div class="col-md-4 col-sm-6">
+      <a href="https://wildcodeschool.fr/orleans/">
       <figure class="Orleans">
         <figcaption>
           <strong>Orléans</strong>
@@ -88,6 +90,7 @@
       </figure>
     </div>
     <div class="col-md-4 col-sm-6">
+      <a href="https://wildcodeschool.fr/biarritz/">
       <figure class="Biarritz">
         <figcaption>
           <strong>Biarritz</strong>
@@ -95,6 +98,7 @@
       </figure>
     </div>
     <div class="col-md-4 col-sm-6">
+      <a href="https://wildcodeschool.fr/reims/">
       <figure class="Reims">
         <figcaption>
           <strong>Reims</strong>
@@ -109,6 +113,4 @@
     <a href="#section04"><span>
     </section>
   </div> #}
-
-
 {% endblock %}
