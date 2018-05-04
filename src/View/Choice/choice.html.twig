@@ -1,28 +1,42 @@
 {% extends 'layout.html.twig' %}
+
 {% block content %}
-<div class=container>
-	<form method="post" action="">
-		<p>
-			<label for="chosenTheme">Sélectionner un Thème</label><br />
-			<select name="chosenTheme" id="chosenTheme">
-				<option value="">Tous les Quizz</option>
-				{% for info in themes %}
-				<option value="{{ info.theme }}">{{ info.theme }}</option>
+
+
+<div class="">
+	<form method="post" action="" class="choice row">
+		<div class="">
+			<div class="row">
+				<label for="chosenTheme" class="col-xs-12 text-center labelChoice"><h3>Sélectionner un Thème:</h3></label>
+
+					<div class="row">
+						<select name="chosenTheme" id="chosenTheme" class="col-xs-3 col-xs-offset-3">
+							<option value="">All Quizz</option>
+							{% for info in themes %}
+							<option class="h-5" value="{{info.theme}}">{{info.theme}}</option>
+						{% endfor %}
+					</select>
+					<input type="submit"  class="myButton col-xs-2 col-xs-offset-1" name="themeChoice" value="Valider" />
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+
+<form method="post" action="/quizz" class="row">
+	<div class="">
+		<div class="row">
+			<label for="chosenQuizz" class="col-xs-12 text-center labelChoice"><h3>Sélectionner un Quizz:</h3></label>
+			<div class="row">
+				<select name="chosenQuizz" id="chosenQuizz" class="col-xs-3 col-xs-offset-3">
+				{% for info in choices %}
+				<option value="{{ info.id }}">{{ info.quizzName }}</option>
 			{% endfor %}
 		</select>
-		<input type="submit" name="themeChoice" value="Valider" />
-	</p>
-</form>
-<form method="post" action="/quizz">
-	<p>
-		<label for="chosenQuizz">Sélectionner un Quizz</label><br />
-		<select name="chosenQuizz" id="chosenQuizz">
-		{% for info in choices %}
-		<option value="{{ info.id }}">{{ info.quizzName }}</option>
-	{% endfor %}
-</select>
-<input type="submit" name="quizzChoice" value="Valider" />
-</p>
-</form>
+		<input type="submit" class="myButton col-xs-2 col-xs-offset-1" name="quizzChoice" value="Valider" />
+	</div>
 </div>
+</div>
+</form>
+
 {% endblock %}
